@@ -1,0 +1,195 @@
+.container {
+    border: 1px solid #728C16;
+    margin-top: 1.5em;
+}
+body {
+	background-color: #EEEEEE;
+}
+#conteudo {
+	margin-top: 1%;
+	margin-bottom: 1%;
+	margin-left: 20%;
+	margin-right: 20%;
+    min-width: 60%;
+    min-height: 95%;
+    position: absolute;
+	background-color: #FFFFFF;
+}
+
+#corpo {
+	margin-top: 10px;
+	clear: both;
+}
+
+#msgErro {
+	padding-top: 10px;
+	font-size: 8pt;
+	color: red;
+	text-align: center;
+	width: 100%;
+}
+
+#msgAviso {
+	padding-top: 10px;
+	font-size: 8pt;
+	color: blue;
+	text-align: center;
+	width: 100%;
+}
+
+.campo {
+	clear: both;
+	padding-top: 15px;
+}
+.legendaCampo {
+	font-weight: normal;
+	font-size: 7pt;
+	text-align: center;
+	position: absolute;
+	width:100%;
+}
+.campo label {
+	text-align: right;
+	position: absolute;
+	right: 57%;
+}
+.campo input, .campo div, .campo select {
+	text-align: left;
+	left: 45%;
+	position: absolute;
+	margin-top: -2px;
+}
+.campo a {
+	font-size: 7pt;
+	float: left;
+	position: absolute;
+	padding-top: 10px;
+	left: 45%
+}
+.campo textarea {
+	text-align: left;
+	left: 45%;
+	margin-top: -2px;
+	position: absolute;
+	height: 50px;
+	width: 200px;
+}
+.botoes {
+	padding-top: 15px;
+	width: 100%;
+	text-align: center;
+}
+
+#titulo {
+	text-align: center;
+	font-size: 12pt;
+	padding-bottom: 10px;
+}
+
+#valorFiltro {
+	width: 200px;
+}
+
+#childWindow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-width: 1px;
+	border-style: solid;
+	background: #ccc;
+	color: #000066;
+	opacity: 0.5;
+	display: none;
+}
+
+#popUp {
+	margin-right: 25%;
+	margin-left: 25%;
+	width: 50%; 
+	height: 50%;
+	bottom: 25%;
+	overflow: auto;
+/* 	background: #ccc; */
+	opacity: none;
+	top: 25%;
+	position: absolute;
+	display: none;
+	text-align: center;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 0.5pt;
+ 	background: #FFFFFF;
+}
+
+/* #popUp a { */
+/* 	font-weight: normal; */
+/* 	color: #000000; */
+/* 	text-decoration: none; */
+/* } */
+
+#popUp #titulo {
+ 	background: #5e8ce9;
+ 	cursor: default;
+ 	vertical-align: middle;
+/* 	border-style: solid; */
+/* 	border-width: 0.5pt; */
+/* 	padding: 3px; */
+}
+
+#popUp th {
+	cursor: default;
+	border-style: solid;
+	color: #000000;
+	font-style: normal;
+}
+
+#popUp tr {
+	cursor: pointer;
+	border-style: solid;
+}
+
+#popUp tr:hover {
+	color: #0000FF;
+	font-style: italic;
+}
+
+/* 	background-color: #00000; */
+#popUpClose {
+	text-align: right;
+	max-heigth: 40%;
+	right: 0;
+	position: absolute;
+	display: none;
+}
+
+.itemResult {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	clear: both;
+	border-style: solid;
+	height: 15px;
+}
+
+.itemResult div {
+	float: left;
+	width: 33.3%;
+	background-color: white;
+	cursor: pointer;
+}
+
+.itemResult:hover {
+	background-color: #69f;
+}
+
+#formLogin {
+	border-style: solid;
+	border-width: thin;
+	border-radius: 5px;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 15%;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
