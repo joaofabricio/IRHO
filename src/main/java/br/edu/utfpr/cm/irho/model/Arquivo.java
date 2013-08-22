@@ -2,15 +2,39 @@ package br.edu.utfpr.cm.irho.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import br.edu.utfpr.cm.libutfcm.model.GenericModel;
 
+@Entity
 public class Arquivo extends GenericModel {
+	
+	@Column
 	private String assunto;
+	
+	@Column
+	@Temporal(TemporalType.DATE)
 	private Date dataArquivo;
 	
-	private Pessoa pessoa; 
+	@ManyToOne
+	@JoinColumn(name="Pessoa_id")
+	private Pessoa pessoa;
+	
+	@ManyToOne
+	@JoinColumn(name="Validade_id")
 	private Validade validade;
+	
+	@ManyToOne
+	@JoinColumn(name="Tipo_id")
 	private Tipo tipo;
+	
+	@ManyToOne
+	@JoinColumn(name="Caixa_id")
 	private Caixa caixa;
 	
 	

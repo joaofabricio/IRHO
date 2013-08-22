@@ -1,9 +1,16 @@
 package br.edu.utfpr.cm.irho.model;
 
-import br.edu.utfpr.cm.libutfcm.model.GenericModel;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
+import br.edu.utfpr.cm.libutfcm.model.GenericModel;
+@Entity
 public class Validade extends GenericModel {
+	
+	@Column
 	private String descricao;
+	
+	@Column
 	private Integer prazoEmAnos;
 	
 	public String getDescricao() {
