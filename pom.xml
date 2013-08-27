@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.edu.utfpr.cm</groupId>
-	<artifactId>b001</artifactId>
+	<artifactId>irho</artifactId>
 	<version>1.0.0</version>
 	<packaging>war</packaging>
 
-	<name>b001</name>
+	<name>irho</name>
 
 	<prerequisites>
 		<maven>2.2.0</maven>
@@ -125,29 +125,29 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-core</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-core</artifactId> -->
+<!-- 			<version>${org.springframework-version}</version> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-web</artifactId> -->
+<!-- 			<version>${org.springframework-version}</version> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-config</artifactId> -->
+<!-- 			<version>${org.springframework-version}</version> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-ldap</artifactId>
-			<version>3.0.4.RELEASE</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.security</groupId> -->
+<!-- 			<artifactId>spring-security-ldap</artifactId> -->
+<!-- 			<version>3.0.4.RELEASE</version> -->
+<!-- 		</dependency> -->
 
 		<!-- Spring Integration -->
 

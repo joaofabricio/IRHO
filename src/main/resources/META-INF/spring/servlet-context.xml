@@ -30,7 +30,7 @@
 
 	<!-- Scans within the base package of the application for @Components to 
 		configure as beans -->
-	<context:component-scan base-package="br.edu.utfpr.cm.b001"  />
+	<context:component-scan base-package="br.edu.utfpr.cm.irho"  />
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<mvc:annotation-driven />

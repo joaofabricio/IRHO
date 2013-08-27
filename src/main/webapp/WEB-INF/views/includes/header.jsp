@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Controle de problemas no laboratório B001</title>
+	<title>Imperium Rerum Humanis Opibus</title>
 	
 <!-- 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
 	
@@ -21,7 +21,7 @@
     <script src="<c:url value='/js/jquery.min.js'/>"></script>
     <script src="<c:url value='/js/jquery.periodicalupdater.js'/>"></script>
 </head>
-<body onload="loadAdmin('${ctx}')">
+<body>
 	<div id="conteudo">
 		<!-- MENU -->
 		<div id="menu">
@@ -29,7 +29,14 @@
 				<li>
 					<a href="${ctx}/">INÍCIO</a>
 				</li>
-				<li id="adminArea" />
+				<li>
+					<a href="#">CADASTRO</a>
+					<ul>
+						<li>
+							<a href="${ctx}/pessoa/cadastro">PESSOA</a>
+						</li>
+					</ul>
+				</li>
  				<li style="float: right">   
  					<a href="${ctx}/j_spring_security_logout">SAIR</a>
  				</li>
