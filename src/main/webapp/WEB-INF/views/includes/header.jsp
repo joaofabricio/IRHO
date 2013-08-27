@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<c:url value='/css/blueprint/screen.css'/>" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="<c:url value='/css/blueprint/print.css'/>"  type="text/css" media="print">
     <link rel="stylesheet" href="<c:url value='/css/menu_style.css'/>"  type="text/css">
-    <link rel="stylesheet" href="<c:url value='/css/skin/css3-buttons-grey.css'/>" type="text/css" media="screen">
+    <link rel="stylesheet" href="<c:url value='/css/skin/css3-buttons-black.css'/>" type="text/css" media="screen">
     <link rel="stylesheet" href="<c:url value='/css/css3-buttons.css'/>" type="text/css" media="screen">
     <!--[if lt IE 8]>
         <link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection">
@@ -49,12 +49,18 @@
 			<a href="${ctx}/" class="button left">
 				<span class="icon icon16" title="Início">Home</span>
 			</a>
-			<a href="${ctx}/" class="button middle">
-				<span class="icon icon41" title="Problemas">Problemas</span>
+			
+				<a href="${ctx}/pessoa/cadastro" class="button left">
+				<span class="icon icon14" title="cadastrto">Cadastro</span>
 			</a>
-<%-- 			<a href="${ctx}/admin/problemas" class="button middle"> --%>
-<!-- 				<span class="icon icon41" title="Problemas">Admin</span> -->
-<!-- 			</a> -->
+			
+			</a>
+			
+				<a href="${ctx}/pessoa/buscaarquivo" class="button left">
+				<span class="icon icon80" title="buscaarquivo">Busca por arquivo</span>
+			</a>
+			
+			
 		</div>
 		<!-- FIM MENU -->
 		<div id="corpo">
