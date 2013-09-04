@@ -27,6 +27,7 @@ public class Arquivo extends GenericModel {
 	
 	@ManyToOne
 	@JoinColumn(name="Validade_id")
+
 	private Validade validade;
 	
 	@ManyToOne
