@@ -39,13 +39,16 @@ public class PessoaController {
 		pessoa.setNome(nome);
 		pessoaService.save(pessoa );
 		
-		request.setAttribute("nomePessoa", nome);
-		
-		response.sendRedirect("cadastradoSucesso");
+		response.sendRedirect("cadastradoSucesso?id="+pessoa.getId());
 		return null;
 	}
 	@RequestMapping(value = "pessoa/cadastradoSucesso", method = RequestMethod.GET)
-	public String cadastradoSucesso() {
+	public String cadastradoSucesso(Long id,HttpServletRequest request) {
+		
+		Pessoa pessoa=pessoaService.find(id);
+		request.setAttribute("nomePessoa", pessoa.getNome());
+		
+		
 		return "pessoa/cadastradoSucesso";
 	}
 

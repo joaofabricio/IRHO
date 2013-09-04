@@ -37,18 +37,21 @@ public class CaixaController {
 		caixa.setDescricao(descricao);
 		caixaService.save(caixa);
 
-		request.setAttribute("Descrition", descricao);
-
-		response.sendRedirect("cadastroSucessoCaixa");
+		response.sendRedirect("cadastroSucessoCaixa?id="+caixa.getId());
 		return null;
 	}
 
 	@RequestMapping(value = "caixa/cadastroSucessoCaixa", method = RequestMethod.GET)
-	public String cadastroSucesso() {
+	public String cadastroSucesso(Long id,HttpServletRequest request) {
+		
+		Caixa caixa=caixaService.find(id);
+		request.setAttribute("Descrition", caixa.getDescricao());
+		
+		
 		return "caixa/cadastroSucessoCaixa";
 	}
 
-	public void setPessoaService(CaixaService caixaService) {
+	public void setCaixaService(CaixaService caixaService) {
 		this.caixaService = caixaService;
 	}
 

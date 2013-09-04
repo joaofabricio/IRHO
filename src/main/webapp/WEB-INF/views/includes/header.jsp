@@ -50,14 +50,18 @@
 				<span class="icon icon56" title="Início">Home</span>
 			</a>
 			
-				<a href="${ctx}/pessoa/cadastro" class="button left">
-				<span class="icon icon14" title="cadastro">Cadastro</span>
+				<a href="${ctx}/pessoa/cadastro" class="button middle">
+				<span class="icon icon51" title="Cadastro de Pessoas">CadastroPessoa</span>
+			</a>
+			<a href="${ctx}/caixa/cadastroCaixa" class="button middle">
+				<span class="icon icon58" title="Cadastro de Caixa">CadastroCaixa</span>
+			</a>
+			<a href="${ctx}/validade/cadastroValidade" class="button middle">
+				<span class="icon icon43" title="Cadastro de Validade">CadastroValidade</span>
 			</a>
 			
-			</a>
-			
-				<a href="${ctx}/pessoa/buscaarquivo" class="button left">
-				<span class="icon icon52" title="buscaarquivo">Busca por arquivo</span>
+			<a href="${ctx}/pessoa/BuscarPessoa" class="button middle">
+				<span class="icon icon52" title="buscar Pessoa">BuscarPessoa</span>
 			</a>
 			
 			

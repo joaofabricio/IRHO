@@ -11,53 +11,53 @@ import org.easymock.EasyMock;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.edu.utfpr.cm.irho.service.CaixaService;
+import br.edu.utfpr.cm.irho.service.ValidadeService;
 
-public class CaixaControllerTest {
+public class ValidadeControllerTest {
 	
-	private CaixaController caixaController = new CaixaController();
+	private ValidadeController ValidadeController = new ValidadeController();
 
 	@Before
 	public void before() {
-		CaixaService serviceMock = EasyMock.createMock(CaixaService.class);
-		caixaController.setCaixaService(serviceMock);
+		ValidadeService serviceMock = EasyMock.createMock(ValidadeService.class);
+		ValidadeController.setValidadeService(serviceMock);
 		
 	}
 	
 	@Test
-	public void testeInsereCaixa() throws IOException {
+	public void testeInsereValidade() throws IOException {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
-		String descricao = "B45";
-		String telaRetorno = caixaController.cadastroCaixa(descricao, request, response);
+		String descricao = "1 ano";
+		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
 		assertEquals(null, telaRetorno);
 	}
 	
 	@Test
-	public void testeInsereCaixaDescricaoNulo() throws IOException {
+	public void testeInsereValidadeDescricaoNulo() throws IOException {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = null;
-		String telaRetorno = caixaController.cadastroCaixa(descricao, request, response);
-		assertEquals("caixa/cadastroCaixa", telaRetorno);
+		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		assertEquals("validade/cadastroValidade", telaRetorno);
 	}
 	
 	@Test
-	public void testeInsereCaixaDescriçãoVazia() throws IOException {
+	public void testeInsereValidadeDescriçãoVazia() throws IOException {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = "";
-		String telaRetorno = caixaController.cadastroCaixa(descricao, request, response);
-		assertEquals("caixa/cadastroCaixa", telaRetorno);
+		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		assertEquals("validade/cadastroValidade", telaRetorno);
 	}
 	
 	@Test
-	public void testeInsereCaixaDescriçãoVazia2() throws IOException {
+	public void testeInsereValidadeDescriçãoVazia2() throws IOException {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = "            ";
-		String telaRetorno = caixaController.cadastroCaixa(descricao, request, response);
-		assertEquals("caixa/cadastroCaixa", telaRetorno);
+		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		assertEquals("validade/cadastroValidade", telaRetorno);
 	}
 
 }

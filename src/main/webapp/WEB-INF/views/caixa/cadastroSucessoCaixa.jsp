@@ -4,7 +4,7 @@
 
 	<div id="titulo">Caixa Cadastrada com sucesso!</div>
 	<div class="botoes">
-		A Caixa <b> ${nomeCaixa} </b> 
+		A Caixa <b> ${Descrition} </b> 
 		foi cadastrada com sucesso!
 	
 	</div> <br />
