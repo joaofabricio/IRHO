@@ -3,7 +3,10 @@
     margin-top: 1.5em;
 }
 body {
-	background-color: #EEEEEE;
+	background-color: #FFFFF;
+   #background-image: url("../images/apresentacao.jpg");
+	background-position: right bottom;
+	
 }
 #conteudo {
 	margin-top: 1%;
@@ -13,7 +16,7 @@ body {
     min-width: 60%;
     min-height: 95%;
     position: absolute;
-	background-color: #FFFFFF;
+   #background-color: #FFFFFF;
 }
 
 #corpo {
@@ -78,6 +81,7 @@ body {
 	padding-top: 15px;
 	width: 100%;
 	text-align: center;
+	
 }
 
 #titulo {

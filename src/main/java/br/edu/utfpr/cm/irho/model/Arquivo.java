@@ -26,11 +26,6 @@ public class Arquivo extends GenericModel {
 	private Pessoa pessoa;
 	
 	@ManyToOne
-	@JoinColumn(name="Validade_id")
-
-	private Validade validade;
-	
-	@ManyToOne
 	@JoinColumn(name="Tipo_id")
 	private Tipo tipo;
 	
@@ -45,12 +40,6 @@ public class Arquivo extends GenericModel {
 	}
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
-	}
-	public Validade getValidade() {
-		return validade;
-	}
-	public void setValidade(Validade validade) {
-		this.validade = validade;
 	}
 	public Tipo getTipo() {
 		return tipo;
