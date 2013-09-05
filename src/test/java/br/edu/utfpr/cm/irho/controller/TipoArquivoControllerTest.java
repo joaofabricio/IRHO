@@ -21,6 +21,7 @@ public class TipoArquivoControllerTest {
 	public void cadastroPessoaTipoArquivo() {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		ValidadeService service = EasyMock.createMock(ValidadeService.class);
+		cadastrotipoArquivoController.setValidadeService(service);
 		String ret = cadastrotipoArquivoController.cadastroPessoatipoarquivo(request);
 		assertEquals("tipoArquivo/cadastro", ret);
 	}

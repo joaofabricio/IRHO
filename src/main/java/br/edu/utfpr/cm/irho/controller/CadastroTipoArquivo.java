@@ -79,4 +79,8 @@ public class CadastroTipoArquivo {
 		
 	}
 
+	public void setValidadeService(ValidadeService service) {
+		this.validadeService = service;		
+	}
+
 }
