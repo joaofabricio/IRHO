@@ -24,8 +24,8 @@
 <body>
 	<div id="conteudo">
 		<!-- MENU -->
-		<div id="menu">
-			<ul id="navbar">
+		<div id="navbar">
+			<ul>
 				<li>
 					<a href="${ctx}/">INÍCIO</a>
 				</li>
@@ -33,7 +33,13 @@
 					<a href="#">CADASTRO</a>
 					<ul>
 						<li>
-							<a href="${ctx}/pessoa/cadastro">PESSOA</a>
+							<a href="${ctx}/caixa/cadastroCaixa">Caixa</a>
+						</li>
+						<li>
+							<a href="${ctx}/pessoa/cadastro">Pessoa</a>
+						</li>
+						<li>
+							<a href="${ctx}/validade/cadastroValidade">Validade</a>
 						</li>
 					</ul>
 				</li>
@@ -60,9 +66,10 @@
 				<span class="icon icon43" title="Cadastro de Validade">CadastroValidade</span>
 			</a>
 			
-			<a href="${ctx}/pessoa/BuscarPessoa" class="button middle">
-				<span class="icon icon52" title="buscar Pessoa">BuscarPessoa</span>
+			<a href="${ctx}/arquivo/buscar" class="button middle">
+				<span class="icon icon52" title="Buscar Arquivo">Buscar Arquivo</span>
 			</a>
+			
 			
 			
 		</div>

@@ -24,5 +24,4 @@ public class ArquivoController {
 	public String cadastroCaixa() {
 		return "caixa/cadastroArquivo";
 	}
-	@RequestMapping(value = "caixa/cadastrarCaixa", method = RequestMethod.POST)
-	
+}

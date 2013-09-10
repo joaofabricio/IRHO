@@ -11,9 +11,5 @@
 	<div class="botoes">
 		<button onclick="location.href='${ctx}/tipoArquivo/cadastro'"> Realizar novo cadastro de tipo de arquivo</button>
 	</div>
-	
-	
-	
-
 
 <%@ include file="/WEB-INF/views/includes/footer.jsp"%>
