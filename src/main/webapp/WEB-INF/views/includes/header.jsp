@@ -51,6 +51,7 @@
 				</li>
 			</ul>
 		</div>
+
 		<div id="toolbar">
 			<a href="${ctx}/" class="button left">
 				<span class="icon icon56" title="Início">Home</span>
@@ -70,8 +71,15 @@
 				<span class="icon icon52" title="Buscar Arquivo">Buscar Arquivo</span>
 			</a>
 			
-			
-			
+	
+			<a href="${ctx}/j_spring_security_logout" class="button right">
+				<img src="${ctx}/images/out.ico" />
+			</a>
+
+			<a href="${ctx}/sobre" class="button midlle right">
+				<span class="icon icon33" title="Buscar Arquivo">Sobre</span>
+			</a>
+
 		</div>
 		<!-- FIM MENU -->
 		<div id="corpo">

@@ -4,7 +4,7 @@
 }
 body {
 	background-color: #FFFFF;
-   #background-image: url("../images/apresentacao.jpg");
+   background-image: url("../images/apresentacao.jpg");
 	background-position: right bottom;
 	
 }
@@ -16,7 +16,7 @@ body {
     min-width: 60%;
     min-height: 95%;
     position: absolute;
-   #background-color: #FFFFFF;
+   background-color: #FFFFFF;
 }
 
 #corpo {
@@ -62,6 +62,9 @@ body {
 	position: absolute;
 	margin-top: -2px;
 }
+
+}
+
 .campo a {
 	font-size: 7pt;
 	float: left;
