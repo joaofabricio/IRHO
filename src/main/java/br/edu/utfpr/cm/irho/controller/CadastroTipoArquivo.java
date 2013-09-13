@@ -29,7 +29,7 @@ public class CadastroTipoArquivo {
 
 	
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method =  RequestMethod.GET)
-	public String cadastroPessoatipoarquivo(HttpServletRequest request) {
+	public String cadastroTipoArquivo(HttpServletRequest request) {
 
 		Collection<Validade> retorno = validadeService.findByCriterion();
 
@@ -38,7 +38,7 @@ public class CadastroTipoArquivo {
 	}
 	
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method = RequestMethod.POST)
-	public String cadastrarPessoa(String descricao, 
+	public String cadastrarTipo(String descricao, 
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
 		

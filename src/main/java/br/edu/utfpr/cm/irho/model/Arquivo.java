@@ -10,12 +10,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import br.edu.utfpr.cm.libutfcm.model.GenericModel;
+import br.edu.utfpr.cm.libutfcm.util.DateUtil;
 
 @Entity
 public class Arquivo extends GenericModel {
 	
 	@Column
 	private String assunto;
+
+	@Column
+	private String area;
 	
 	@Column
 	@Temporal(TemporalType.DATE)
@@ -62,8 +66,18 @@ public class Arquivo extends GenericModel {
 	public Date getDataArquivo() {
 		return dataArquivo;
 	}
+	public String getDataArquivoFormatada() {
+		return DateUtil.formatarDDMMAAAA(dataArquivo);
+	}
 	public void setDataArquivo(Date dataArquivo) {
 		this.dataArquivo = dataArquivo;
 	}
+
+	public String getArea() {
+		return area;
+	}
 	
+	public void setArea(String area) {
+		this.area = area;
+	}
 }
