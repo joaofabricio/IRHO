@@ -32,8 +32,6 @@ public class PessoaBuscaControllerTest {
 
 	@Test
 	public void testeBuscarPessoa() throws IOException {
-		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
-		HttpServletResponse response = EasyMock.createMock(HttpServletResponse.class);
 		PessoaBuscaController pessoaBuscaController = new PessoaBuscaController();
 		String telaRetorno = pessoaBuscaController.BuscarPessoa();
 		assertEquals("pessoa/BuscarPessoa", telaRetorno);

@@ -16,15 +16,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.utfpr.cm.irho.model.Arquivo;
 import br.edu.utfpr.cm.irho.model.Caixa;
-import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.model.Tipo;
 import br.edu.utfpr.cm.irho.service.ArquivoService;
 import br.edu.utfpr.cm.irho.service.CaixaService;
 import br.edu.utfpr.cm.irho.service.PessoaService;
 import br.edu.utfpr.cm.irho.service.TipoService;
 import br.edu.utfpr.cm.libutfcm.dao.Criterion;
-import br.edu.utfpr.cm.libutfcm.service.IGenericService;
-import br.edu.utfpr.cm.libutfcm.util.DateUtil;
 
 @Controller
 public class BuscaArquivoController {

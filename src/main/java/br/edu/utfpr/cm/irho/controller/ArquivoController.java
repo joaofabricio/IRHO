@@ -1,8 +1,6 @@
 package br.edu.utfpr.cm.irho.controller;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -22,7 +20,6 @@ import br.edu.utfpr.cm.irho.service.ArquivoService;
 import br.edu.utfpr.cm.irho.service.CaixaService;
 import br.edu.utfpr.cm.irho.service.PessoaService;
 import br.edu.utfpr.cm.irho.service.TipoService;
-import br.edu.utfpr.cm.libutfcm.dao.Criterion;
 import br.edu.utfpr.cm.libutfcm.dao.Order;
 import br.edu.utfpr.cm.libutfcm.util.DateUtil;
 
@@ -124,9 +121,6 @@ public class ArquivoController {
 		
 	}
 	
-	private Date converteData(String dataArquivo) throws ParseException {
-		return DateUtil.converteDataDDMMAAAA(dataArquivo);
-	}
 	public void setArquivoService(ArquivoService arquivoService) {
 		this.arquivoService = arquivoService;
 	}
