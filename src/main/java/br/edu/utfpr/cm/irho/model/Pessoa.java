@@ -7,7 +7,7 @@ import br.edu.utfpr.cm.libutfcm.model.GenericModel;
 @Entity
 public class Pessoa extends GenericModel {
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 
 	public String getNome() {

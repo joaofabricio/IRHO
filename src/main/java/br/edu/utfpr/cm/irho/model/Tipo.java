@@ -7,7 +7,7 @@ import br.edu.utfpr.cm.libutfcm.model.GenericModel;
 @Entity
 public class Tipo extends GenericModel {
 	
-	@Column
+	@Column(nullable = false)
 	private String descricao;
 	
 	

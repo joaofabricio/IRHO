@@ -25,15 +25,26 @@ public class ValidadeController {
 	}
 
 	@RequestMapping(value = "validade/cadastrarValid", method = RequestMethod.POST)
-	public String cadastroValidade(String descricao, HttpServletRequest request,
+	public String cadastroValidade(Integer prazoEmAnos, String descricao, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
+		
+		Validade validade = new Validade();
+		
 		if (!StringUtils.hasText(descricao)) {
 			request.setAttribute("erro", "Descrição inválida.");
-			return "validade/cadastroValidade";
+			request.setAttribute("validade", validade);
+			return cadastroValidade();
+		}
+		
+		validade.setDescricao(descricao);
+		
+		if (prazoEmAnos == null || prazoEmAnos < 0) {
+			request.setAttribute("erro", "Prazo inválido.");
+			request.setAttribute("validade", validade);
+			return cadastroValidade();
 		}
 
-		Validade validade = new Validade();
-		validade.setDescricao(descricao);
+		validade.setPrazoEmAnos(prazoEmAnos);
 		ValidadeService.save(validade);
 
 		response.sendRedirect("cadastroSucessoValidade?id="+validade.getId());
