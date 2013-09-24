@@ -20,6 +20,14 @@ public class PessoaController {
 	@Autowired
 	private PessoaService pessoaService;
 	
+	@RequestMapping(value = "pessoa/editar", method =  RequestMethod.GET)
+	public String editarPessoa(Long id, HttpServletRequest request) {
+		Pessoa p = pessoaService.find(id);
+		request.setAttribute("pessoa", p);
+		
+		return "pessoa/editar";
+	}
+	
 	@RequestMapping(value = "pessoa/cadastro", method =  RequestMethod.GET)
 	public String cadastroPessoa() {
 		return "pessoa/cadastro";
@@ -42,6 +50,28 @@ public class PessoaController {
 		response.sendRedirect("cadastradoSucesso?id="+pessoa.getId());
 		return null;
 	}
+	
+	@RequestMapping(value = "pessoa/editado", method = RequestMethod.POST)
+	public String cadastrarPessoa(String nome, Long id,
+								  HttpServletRequest request,
+								  HttpServletResponse response) throws IOException {
+		
+		if (!StringUtils.hasText(nome)) {
+			request.setAttribute("erro", "Nome invalido.");
+			return "pessoa/cadastro";
+		}
+		
+		Pessoa pessoa = new Pessoa();
+		pessoa.setId(id);
+		pessoa.setNome(nome);
+		pessoaService.save(pessoa );
+		
+		response.sendRedirect("cadastradoSucesso?id="+pessoa.getId());
+		return null;
+	}
+		
+		
+	
 	@RequestMapping(value = "pessoa/cadastradoSucesso", method = RequestMethod.GET)
 	public String cadastradoSucesso(Long id,HttpServletRequest request) {
 		
@@ -57,11 +87,5 @@ public class PessoaController {
 	}
 		
 		
-//		@RequestMapping(value = "pessoa/cadastradoSucesso", method = RequestMethod.POST)
-//		public String cadastrarSucesso(String nome) {
-//			
-//			return "pessoa/cadastroSucesso";
-//	}
-
 }
 

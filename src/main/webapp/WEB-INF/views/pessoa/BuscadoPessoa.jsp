@@ -40,7 +40,7 @@
 				<td>${o.id}</td>
 				<td>${o.nome}</td>
 				<td style="text-align: center;">
-					<a href="${ctx}/${entidade}/alterar?id=${o.id}">
+					<a href="${ctx}/pessoa/editar?id=${o.id}">
 						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />
 					</a>
 				</td>
