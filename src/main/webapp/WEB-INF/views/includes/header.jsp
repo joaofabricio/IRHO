@@ -30,6 +30,23 @@
 					<a href="${ctx}/">INÍCIO</a>
 				</li>
 				<li>
+					<a href="#">BUSCA</a>
+					<ul>
+						<li>
+							<a href="${ctx}/arquivo/buscar">Arquivo</a>
+						</li>
+						<li>
+							<a href="${ctx}/caixa/buscar">Caixa</a>
+						</li>
+						<li>
+							<a href="${ctx}/pessoa/buscar">Pessoa</a>
+						</li>
+						<li>
+							<a href="${ctx}/validade/buscar">Validade</a>
+						</li>
+					</ul>
+				</li>
+				<li>
 					<a href="#">CADASTRO</a>
 					<ul>
 						<li>
@@ -46,23 +63,6 @@
 						</li>
 						<li>
 							<a href="${ctx}/validade/cadastroValidade">Validade</a>
-						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="#">BUSCA</a>
-					<ul>
-						<li>
-							<a href="${ctx}/arquivo/buscar">Arquivo</a>
-						</li>
-						<li>
-							<a href="${ctx}/caixa/buscar">Caixa</a>
-						</li>
-						<li>
-							<a href="${ctx}/pessoa/buscar">Pessoa</a>
-						</li>
-						<li>
-							<a href="${ctx}/validade/buscar">Validade</a>
 						</li>
 					</ul>
 				</li>
