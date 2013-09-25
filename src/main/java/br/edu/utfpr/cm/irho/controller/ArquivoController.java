@@ -60,14 +60,19 @@ public class ArquivoController {
 							   Long idCaixa,
 							   String assunto,
 							   String area,
+							   String observacao,
 							   HttpServletRequest request) {
-		
-		Arquivo arquivo = new Arquivo();
-		arquivo.setArea(area);
-		arquivo.setAssunto(assunto);
 		
 		StringBuilder erros = new StringBuilder();
 		
+		Arquivo arquivo = new Arquivo();
+		arquivo.setArea(area);
+		arquivo.setObservacao(observacao);
+		
+		if (!StringUtils.hasText(assunto)) {
+			erros.append("Digite um assunto ");
+		}
+		arquivo.setAssunto(assunto);
 		
 		if (dataArquivo != null) {
 			Date data;
@@ -95,17 +100,6 @@ public class ArquivoController {
  			}
  		} else {
  			erros.append("Selecione o tipo ");
- 		}
- 		
- 		if (idCaixa != null && idCaixa > 0) {
- 			Caixa caixa = caixaService.find(idCaixa);
- 			arquivo.setCaixa(caixa);
- 			if (caixa == null) {
- 				erros.append("A caixa especificada não existe");
- 			}
- 			
- 		}else{
- 			erros.append("Selecione a caixa ");
  		}
  		
  		if(StringUtils.hasText(erros.toString())){

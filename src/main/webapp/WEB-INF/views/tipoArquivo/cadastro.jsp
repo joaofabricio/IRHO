@@ -6,15 +6,15 @@
 	<div id="titulo">Cadastro de tipo de arquivo</div>
 
 	<div class="campo">
-		<label for="descricao">Descrição:</label>
+		<label for="descricao">Descrição*:</label>
 		<input type="text" name="descricao" size="30" />
 	</div>	
 	<br/>
 	
 	<div class="campo">
-		<label for="descricao">Validade:</label>
+		<label for="descricao">Validade*:</label>
 		
-		<select name="validade">
+		<select name="validadeId">
 			<c:forEach var="o" items="${result}">
 				<option value="${o.id}">${o.descricao}</option>
 			</c:forEach>

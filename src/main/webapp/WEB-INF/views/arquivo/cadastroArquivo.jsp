@@ -1,3 +1,5 @@
+<%@page import="br.edu.utfpr.cm.irho.model.Arquivo"%>
+<%@page import="br.edu.utfpr.cm.libutfcm.util.DateUtil"%>
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <%@ include file="/WEB-INF/views/includes/header.jsp"%>
 
@@ -25,14 +27,14 @@
 	</div>	
 	<br/>
 	<div class="campo">
-		<label for="assunto">Assunto:</label>
+		<label for="assunto">Assunto*:</label>
 		<input type="text" name="assunto" value="${arquivo.assunto}" size="30" />
 	</div>
 	
 	<br/>
 	
 	<div class="campo">
-		<label for="descricao">Tipo:</label>
+		<label for="descricao">Tipo*:</label>
 		
 		<select name="idTipo" style="max-width: 250px">
 		<option value="-1">Selecione o Tipo</option>
@@ -56,13 +58,20 @@
 	</div>
 	<br/>
 	<div class="campo">
-		<label for="dataArquivo"> Data:</label>
-		<input type="text" name="dataArquivo" id="dataArquivo" value="${arquivo.dataArquivoFormatada}" size="10"/>
+		<label for="dataArquivo"> Data*:</label>
+		<input type="text" name="dataArquivo" id="dataArquivo" value="${arquivo!=null?arquivo.getDataArquivoFormatada():'' }" size="10"/>
 	</div>
 	
-  
-		
+	<br />
 	
+	<div class="campo">
+		<label for="observacao"> Observação:</label>
+		<textarea name="observacao">${arquivo.observacao}</textarea>
+<%-- 		<input type="text" name="observacao" id="observacao" value="${arquivo!=null?arquivo.observacao:''}" /> --%>
+	</div>
+	
+	<br />
+	<br />
 	<br />
 	
 	<div class="botoes">

@@ -57,6 +57,12 @@ public class BuscaArquivoController {
 							   Long caixa,
 							   String assunto,
 							   HttpServletRequest request) {
+		buscaArquivo(request);
+		request.setAttribute("pessoa", pessoa);
+		request.setAttribute("dataArquivo", dataArquivo);
+		request.setAttribute("tipo", tipo);
+		request.setAttribute("caixa", caixa);
+		request.setAttribute("assunto", assunto);
 		
  		Collection<Criterion> criterios = new ArrayList<Criterion>();
 		
@@ -93,7 +99,7 @@ public class BuscaArquivoController {
 		Collection<Arquivo> arquivos = arquivoService.findByCriterion(criterios.toArray(new Criterion[0]));
 		
 
-		request.setAttribute("arquivos", arquivos);		
+		request.setAttribute("arquivos", arquivos);
 		
 		return "arquivo/buscado";
 		

@@ -16,7 +16,7 @@ import br.edu.utfpr.cm.libutfcm.util.DateUtil;
 @Entity
 public class Arquivo extends GenericModel {
 	
-	@Column
+	@Column(nullable = false)
 	private String assunto;
 
 	@Column

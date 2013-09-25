@@ -6,7 +6,7 @@
 	<div id="titulo">Cadastro de Caixas</div>
 
 	<div class="campo">
-		<label for="descricao">Nome da Caixa:</label>
+		<label for="descricao">Nome da Caixa*:</label>
 		<input type="text" name="descricao" size="30" />
 	</div>
 	

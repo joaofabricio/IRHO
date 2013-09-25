@@ -29,7 +29,7 @@ public class ValidadeControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = "1 ano";
-		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		String telaRetorno = ValidadeController.cadastroValidade(1, descricao, request, response);
 		assertEquals(null, telaRetorno);
 	}
 	
@@ -38,7 +38,7 @@ public class ValidadeControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = null;
-		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		String telaRetorno = ValidadeController.cadastroValidade(1, descricao, request, response);
 		assertEquals("validade/cadastroValidade", telaRetorno);
 	}
 	
@@ -47,7 +47,7 @@ public class ValidadeControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = "";
-		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		String telaRetorno = ValidadeController.cadastroValidade(1, descricao, request, response);
 		assertEquals("validade/cadastroValidade", telaRetorno);
 	}
 	
@@ -56,7 +56,7 @@ public class ValidadeControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String descricao = "            ";
-		String telaRetorno = ValidadeController.cadastroValidade(descricao, request, response);
+		String telaRetorno = ValidadeController.cadastroValidade(1, descricao, request, response);
 		assertEquals("validade/cadastroValidade", telaRetorno);
 	}
 
