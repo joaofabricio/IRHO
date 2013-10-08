@@ -74,13 +74,16 @@ public class ArquivoController {
 		}
 		arquivo.setAssunto(assunto);
 		
+		String erro = "";
+		
+		
 		if (dataArquivo != null) {
 			Date data;
 			try {
 				data = DateUtil.converteDataDDMMAAAA(dataArquivo);
 				arquivo.setDataArquivo(data);
 			} catch (ParseException e) {
-				erros.append("Digite a data no formato DD/MM/AAAA");
+				erro = "Digite a data no formato DD/MM/AAAA";
 			}
 		}
  		
@@ -88,7 +91,7 @@ public class ArquivoController {
 			Pessoa pessoa = pessoaService.find(idPessoa);
 			arquivo.setPessoa(pessoa);
 			if ( pessoa == null) {
-				erros.append("A pessoa especificada não existe");
+				erro="A pessoa especificada não existe";
 			}
 		}
 		
@@ -96,14 +99,14 @@ public class ArquivoController {
  			Tipo tipo = tipoService.find(idTipo);
  			arquivo.setTipo(tipo);
  			if (tipo == null) {
- 				erros.append("O tipo especificado não existe");
+ 				erro="O tipo especificado não existe";
  			}
  		} else {
- 			erros.append("Selecione o tipo ");
+ 			erro="Selecione o tipo ";
  		}
  		
- 		if(StringUtils.hasText(erros.toString())){
- 			request.setAttribute("erro", erros);
+ 		if(StringUtils.hasText(erro)){
+ 			request.setAttribute("erro", erro);
  			request.setAttribute("arquivo", arquivo);
  			return cadastroArquivo(request);
  		}
