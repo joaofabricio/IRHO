@@ -26,6 +26,14 @@ public class CadastroTipoArquivo {
 	
 	@Autowired
 	private ValidadeService validadeService;
+	
+	@RequestMapping(value = "tipo/editarTipo", method =  RequestMethod.GET)
+	public String editarTipo(Long id, HttpServletRequest request) {
+		Tipo p = tipoService.find(id);
+		request.setAttribute("tipo", p);
+		
+		return "tipo/editarTipo";
+	}
 
 	
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method =  RequestMethod.GET)
@@ -38,36 +46,43 @@ public class CadastroTipoArquivo {
 	}
 	
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method = RequestMethod.POST)
-	public String cadastrarTipo(String descricao, Long validadeId,
+	public String cadastrarTipo(String descricao, 
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
 		
 		if (!StringUtils.hasText(descricao)) {
-			request.setAttribute("erro", "Descrição inválida.");
-			return cadastroTipoArquivo(request);
-		}
-		
-		if (validadeId == null || validadeId < 0) {
-			request.setAttribute("erro", "Selecione uma validade.");
-			return cadastroTipoArquivo(request);
-		}
-		
-		Validade validade = validadeService.find(validadeId);
-		
-		if (validade == null) {
-			request.setAttribute("erro", "A validade especificada não foi recuperada.");
-			return cadastroTipoArquivo(request);
+			request.setAttribute("erro", "Descrição invalida.");
+			return TIPO_ARQUIVO_CADASTRO;
 		}
 		
 		Tipo tipo = new Tipo();
 		tipo.setDescricao(descricao);
-		tipo.setValidade(validade);
 		tipoService.save(tipo);
 		
 		
 		response.sendRedirect("cadastradoSucesso?id="+tipo.getId());
 		return null;
 	}
+	
+	@RequestMapping(value = "tipo/editado", method = RequestMethod.POST)
+	public String cadastrarTipo(String descricao, Long id,
+								  HttpServletRequest request,
+								  HttpServletResponse response) throws IOException {
+		
+		if (!StringUtils.hasText(descricao)) {
+			request.setAttribute("erro", "Nome invalido.");
+			return cadastroTipoArquivo(request);
+		}
+
+		Tipo tipo = new Tipo();
+		tipo.setId(id);
+		tipo.setDescricao(descricao);
+		tipoService.save(tipo);
+		
+		response.sendRedirect("cadastroSucessoTipo?id="+tipo.getId());
+		return null;
+	}
+	
 	@RequestMapping
 	(value = "tipoArquivo/cadastradoSucesso", method = RequestMethod.GET)
 	public String cadastroSucesso(Long id, HttpServletRequest request) {
@@ -85,6 +100,8 @@ public class CadastroTipoArquivo {
 		
 		return "tipoArquivo/cadastradoSucesso";
 	}
+	
+	
 
 	public void setTipoService(TipoService service) {
 		this.tipoService = service;
