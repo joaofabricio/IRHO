@@ -8,10 +8,10 @@ import br.edu.utfpr.cm.libutfcm.model.GenericModel;
 @Entity
 public class Validade extends GenericModel {
 	
-	@Column
+	@Column(nullable = false)
 	private String descricao;
 	
-	@Column
+	@Column(nullable = false)
 	private Integer prazoEmAnos;
 	
 	public String getDescricao() {

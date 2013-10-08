@@ -14,8 +14,8 @@
 	<div id="titulo">Busca Realizada!</div>
 
 	<div class="campo">
-		<label for="nome"> Nome:</label>
-		<input type="text" name="nome" size="30" value="${nomePessoa}" />
+		<label for="nome"> Descrição:</label>
+		<input type="text" name="descricao" size="30" value="${descricaoCaixa}" />
 	</div>
 	
 	<input type="hidden" value="${ordem==null?'nome':ordem}" name="ordem" id="ordem" />
@@ -32,15 +32,15 @@
 	<table>
 		<tr>
 			<th><a href="javascript: ordenar('id')">Id</a></th>
-			<th><a href="javascript: ordenar('nome')">Nome</a></th>
+			<th><a href="javascript: ordenar('descricao')">Descrição:</a></th>
 			<th style="text-align: center;">editar</th>
 		</tr>
 		<c:forEach var="o" items="${result}">
 			<tr>
 				<td>${o.id}</td>
-				<td>${o.nome}</td>
+				<td>${o.descricao}</td>
 				<td style="text-align: center;">
-					<a href="${ctx}/pessoa/editar?id=${o.id}">
+					<a href="${ctx}/caixa/editarCaixa?id=${o.id}">
 						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />
 					</a>
 				</td>
@@ -49,7 +49,7 @@
 	</table>
  <br />
 	<div class="botoes">
-		<button onclick="location.href='${ctx}/pessoa/BuscarPessoa'"> Realizar nova busca</button>
+		<button onclick="location.href='${ctx}/caixa/BuscarCaixa'"> Realizar nova busca</button>
 	</div>
 	
 	<%@ include file="/WEB-INF/views/includes/footer.jsp"%>

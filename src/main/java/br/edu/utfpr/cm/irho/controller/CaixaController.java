@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.utfpr.cm.irho.model.Caixa;
+import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.service.CaixaService;
 
 @Controller
@@ -19,6 +20,14 @@ public class CaixaController {
 
 	@Autowired
 	private CaixaService caixaService;
+	
+	@RequestMapping(value = "caixa/editarCaixa", method =  RequestMethod.GET)
+	public String editarCaixa(Long id, HttpServletRequest request) {
+		Caixa p = caixaService.find(id);
+		request.setAttribute("caixa", p);
+		
+		return "caixa/editarCaixa";
+	}
 
 	@RequestMapping(value = "caixa/cadastroCaixa", method = RequestMethod.GET)
 	public String cadastroCaixa() {
@@ -40,7 +49,24 @@ public class CaixaController {
 		response.sendRedirect("cadastroSucessoCaixa?id="+caixa.getId());
 		return null;
 	}
+	@RequestMapping(value = "caixa/editado", method = RequestMethod.POST)
+	public String cadastrarCaixa(String descricao, Long id,
+								  HttpServletRequest request,
+								  HttpServletResponse response) throws IOException {
+		
+		if (!StringUtils.hasText(descricao)) {
+			request.setAttribute("erro", "Nome invalido.");
+			return cadastroCaixa();
+		}
 
+		Caixa caixa = new Caixa();
+		caixa.setId(id);
+		caixa.setDescricao(descricao);
+		caixaService.save(caixa );
+		
+		response.sendRedirect("cadastroSucessoCaixa?id="+caixa.getId());
+		return null;
+	}
 	@RequestMapping(value = "caixa/cadastroSucessoCaixa", method = RequestMethod.GET)
 	public String cadastroSucesso(Long id,HttpServletRequest request) {
 		

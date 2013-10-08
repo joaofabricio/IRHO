@@ -6,7 +6,7 @@
 	<div id="titulo">Cadastro de Pessoas</div>
 
 	<div class="campo">
-		<label for="nome">Nome:</label>
+		<label for="nome">Nome*:</label>
 		<input type="text" name="nome" size="30" />
 	</div>
 	

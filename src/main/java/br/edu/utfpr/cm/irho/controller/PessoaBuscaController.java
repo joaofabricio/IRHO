@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,6 +35,7 @@ public class PessoaBuscaController {
 
 		Criterion criterion = Criterion.like("nome", nome);
 
+		ordem = StringUtils.hasText(ordem)?ordem:"1";
 		Order o = Order.ascending(ordem);
 
 		Collection<Pessoa> retorno = pessoaService.findByCriterion(o, criterion);

@@ -8,6 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import br.edu.utfpr.cm.libutfcm.model.GenericModel;
 import br.edu.utfpr.cm.libutfcm.util.DateUtil;
@@ -15,13 +16,13 @@ import br.edu.utfpr.cm.libutfcm.util.DateUtil;
 @Entity
 public class Arquivo extends GenericModel {
 	
-	@Column
+	@Column(nullable = false)
 	private String assunto;
 
 	@Column
 	private String area;
 	
-	@Column
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date dataArquivo;
 	
@@ -30,14 +31,15 @@ public class Arquivo extends GenericModel {
 	private Pessoa pessoa;
 	
 	@ManyToOne
-	@JoinColumn(name="Tipo_id")
+	@JoinColumn(name="Tipo_id", nullable = false)
 	private Tipo tipo;
 	
 	@ManyToOne
 	@JoinColumn(name="Caixa_id")
 	private Caixa caixa;
 	
-	
+	@Column
+	private String observacao;
 	
 	public Pessoa getPessoa() {
 		return pessoa;
@@ -66,8 +68,13 @@ public class Arquivo extends GenericModel {
 	public Date getDataArquivo() {
 		return dataArquivo;
 	}
+	@Transient
 	public String getDataArquivoFormatada() {
-		return DateUtil.formatarDDMMAAAA(dataArquivo);
+		try {
+			return DateUtil.formatarDDMMAAAA(dataArquivo);
+		} catch (Exception e) {
+			return "";
+		}
 	}
 	public void setDataArquivo(Date dataArquivo) {
 		this.dataArquivo = dataArquivo;
@@ -79,5 +86,13 @@ public class Arquivo extends GenericModel {
 	
 	public void setArea(String area) {
 		this.area = area;
+	}
+	
+	public String getObservacao() {
+		return observacao;
+	}
+	
+	public void setObservacao(String observacao) {
+		this.observacao = observacao;
 	}
 }

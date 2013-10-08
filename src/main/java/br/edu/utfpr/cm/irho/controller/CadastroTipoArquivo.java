@@ -38,17 +38,30 @@ public class CadastroTipoArquivo {
 	}
 	
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method = RequestMethod.POST)
-	public String cadastrarTipo(String descricao, 
+	public String cadastrarTipo(String descricao, Long validadeId,
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
 		
 		if (!StringUtils.hasText(descricao)) {
-			request.setAttribute("erro", "Descrição invalida.");
-			return TIPO_ARQUIVO_CADASTRO;
+			request.setAttribute("erro", "Descrição inválida.");
+			return cadastroTipoArquivo(request);
+		}
+		
+		if (validadeId == null || validadeId < 0) {
+			request.setAttribute("erro", "Selecione uma validade.");
+			return cadastroTipoArquivo(request);
+		}
+		
+		Validade validade = validadeService.find(validadeId);
+		
+		if (validade == null) {
+			request.setAttribute("erro", "A validade especificada não foi recuperada.");
+			return cadastroTipoArquivo(request);
 		}
 		
 		Tipo tipo = new Tipo();
 		tipo.setDescricao(descricao);
+		tipo.setValidade(validade);
 		tipoService.save(tipo);
 		
 		
