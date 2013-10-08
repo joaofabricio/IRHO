@@ -16,7 +16,7 @@ import br.edu.utfpr.cm.irho.service.TipoService;
 public class BuscaArquivoControllerTest {
 
 	@Test
-	public void testeBuscaArquivo() throws IOException {
+	public void testeCadastroArquivo() throws IOException {
 		HttpServletRequest request = EasyMock.createStrictMock(HttpServletRequest.class);
 		
 		BuscaArquivoController buscaArquivo= new BuscaArquivoController();

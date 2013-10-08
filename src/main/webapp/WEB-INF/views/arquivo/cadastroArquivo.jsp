@@ -3,6 +3,13 @@
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <%@ include file="/WEB-INF/views/includes/header.jsp"%>
 
+<script type="text/javascript">
+	function selecionarPessoa(id, nome) {
+		document.getElementById("pessoaId").value = id;
+		document.getElementById("pessoaNome").value=nome;
+	}
+</script>
+
 <form action="${ctx}/arquivo/cadastroSubmit" method="post">
 
 	<div id="titulo"> Cadastro de Arquivos</div>
@@ -10,12 +17,17 @@
 	<div class="campo">
 		<label for="nome">Pessoa:</label>
 		
-		<select name="idPessoa" style="max-width: 250px">
-			<option value="-1">Selecione a pessoa</option>
-			<c:forEach var="o" items="${pessoas}">
-				<option value="${o.id}" ${(arquivo != null && arquivo.pessoa.id == o.id)? 'selected=="selected"':''} >${o.nome}</option>
-			</c:forEach>
-		</select>
+<!-- 		<select name="idPessoa" style="max-width: 250px"> -->
+		<input type="hidden" name="pessoa" value="${arquivo.pessoa.id}" id="pessoaId" />
+		<input type="text" value="${arquivo.pessoa.nome}" id="pessoaNome" size="30" readonly="readonly" />
+			<!--  <option value="-1">Selecione a pessoa</option>
+     		<c:forEach var="o" items="${pessoas}">
+				<option value="${o.id}" ${(arquivo != null && arquivo.pessoa.id == o.id)? 'selected=="selected"':''} id="pessoa${o.id}" >${o.nome}</option>
+			</c:forEach> -->
+<!-- 		</select>   -->
+		<br />
+		<br/>
+		<input onclick="showPopup('${ctx}/pessoa/popup');" value="Selecionar pessoa..." readonly="readonly" />
 	</div>
 	
 	
