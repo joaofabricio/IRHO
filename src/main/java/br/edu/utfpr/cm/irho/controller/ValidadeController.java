@@ -24,6 +24,8 @@ public class ValidadeController {
 		return "validade/cadastroValidade";
 	}
 
+	
+	
 	@RequestMapping(value = "validade/cadastrarValid", method = RequestMethod.POST)
 	public String cadastroValidade(Integer prazoEmAnos, String descricao, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {

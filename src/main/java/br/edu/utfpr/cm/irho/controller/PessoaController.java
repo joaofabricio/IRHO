@@ -11,6 +11,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.edu.utfpr.cm.irho.model.Caixa;
 import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.service.PessoaService;
 
@@ -26,6 +27,25 @@ public class PessoaController {
 		request.setAttribute("pessoa", p);
 		
 		return "pessoa/editar";
+	}
+	
+	@RequestMapping(value="pessoa/excluir")
+	public String excluir(Long id, String ctx, HttpServletRequest request){
+		Pessoa pessoa=pessoaService.find(id);
+		request.setAttribute("id", pessoa.getId());
+		request.setAttribute("descricao", pessoa.getNome());
+		request.setAttribute("entidade", "pessoa");
+		request.setAttribute("action", "pessoa/ExcluirPessoa");
+		request.setAttribute("ctx", ctx);
+		return "ExcluirConfirmacao";
+	}
+	@RequestMapping(value="pessoa/ExcluirPessoa")
+	public String excluirDelete(Long id, HttpServletRequest request){
+		Pessoa pessoa = pessoaService.find(id);
+		request.setAttribute("Nome", pessoa.getNome());
+		request.setAttribute("entidade", "pessoa");
+		pessoaService.delete(pessoa);
+		return "ExcluidoSucesso";
 	}
 	
 	@RequestMapping(value = "pessoa/cadastro", method =  RequestMethod.GET)

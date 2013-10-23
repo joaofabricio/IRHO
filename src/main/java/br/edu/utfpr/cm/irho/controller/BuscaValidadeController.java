@@ -31,7 +31,7 @@ public class BuscaValidadeController {
 			return "validade/BuscarValidade";
 		}
 
-		@RequestMapping(value = "tipo/buscar", method = RequestMethod.POST)
+//		@RequestMapping(value = "tipo/buscar", method = RequestMethod.POST)
 		public String buscarCaxia(String tipo, String ordem,
 				HttpServletRequest request, HttpServletResponse response)
 				throws IOException {

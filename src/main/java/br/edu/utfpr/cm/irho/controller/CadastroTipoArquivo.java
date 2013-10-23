@@ -12,6 +12,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.model.Tipo;
 import br.edu.utfpr.cm.irho.model.Validade;
 import br.edu.utfpr.cm.irho.service.TipoService;
@@ -35,7 +36,24 @@ public class CadastroTipoArquivo {
 		return "tipo/editarTipo";
 	}
 
-	
+	@RequestMapping(value="tipo/excluir")
+	public String excluir(Long id, String ctx, HttpServletRequest request){
+		Tipo tipo=tipoService.find(id);
+		request.setAttribute("id", tipo.getId());
+		request.setAttribute("descricao", tipo.getDescricao());
+		request.setAttribute("entidade", "tipo");
+		request.setAttribute("action", "tipo/ExcluirTipo");
+		request.setAttribute("ctx", ctx);
+		return "ExcluirConfirmacao";
+	}
+	@RequestMapping(value="tipo/ExcluirTipo")
+	public String excluirDelete(Long id, HttpServletRequest request){
+		Tipo tipo = tipoService.find(id);
+		request.setAttribute("Nome", tipo.getDescricao());
+		request.setAttribute("entidade", "tipo");
+		tipoService.delete(tipo);
+		return "ExcluidoSucesso";
+	}
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method =  RequestMethod.GET)
 	public String cadastroTipoArquivo(HttpServletRequest request) {
 

@@ -28,11 +28,11 @@ public class BuscaTipoArquivoController {
 
 		@RequestMapping(value = "tipo/buscar", method = RequestMethod.GET)
 		public String cadastroTipoArquivo() {
-			return "caixa/BuscarTipoArquivo";
+			return "tipoArquivo/buscarTipo";
 		}
 
-		@RequestMapping(value = "tipo/buscar", method = RequestMethod.POST)
-		public String buscarCaxia(String tipo, String ordem,
+		@RequestMapping(value = "tipoArquivo/buscar", method = RequestMethod.POST)
+		public String buscarTipo(String tipo, String ordem,
 				HttpServletRequest request, HttpServletResponse response)
 				throws IOException {
 
@@ -45,12 +45,12 @@ public class BuscaTipoArquivoController {
 			request.setAttribute("result", retorno);
 
 			request.setAttribute("TipoArquivo", tipo);
-			return "tipo/BuscadoTipo";
+			return "tipoArquivo/buscadoTipo";
 		}
 
-		@RequestMapping(value = "tipo/BuscarTipo", method = RequestMethod.GET)
+		@RequestMapping(value = "tipoArquivo/BuscarTipo", method = RequestMethod.GET)
 		public String BuscarTipo() {
-			return "tipo/BuscarTipo";
+			return "tipoArquivo/buscarTipo";
 		}
 
 		public void setTipoService(TipoService tipoService) {

@@ -3,7 +3,7 @@
 
 <form action="${ctx}/validade/buscar" method="post">
 
-	<div id="titulo">Busca por Pessoa</div>
+	<div id="titulo">Busca por Validade</div>
 
 	<div class="campo">
 		<label for="nome"> Nome:</label>

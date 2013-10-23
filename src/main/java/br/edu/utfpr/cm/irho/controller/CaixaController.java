@@ -28,7 +28,27 @@ public class CaixaController {
 		
 		return "caixa/editarCaixa";
 	}
-
+	@RequestMapping(value="caixa/excluir")
+	public String excluir(Long id, String ctx, HttpServletRequest request){
+		Caixa caixa=caixaService.find(id);
+		request.setAttribute("id", caixa.getId());
+		request.setAttribute("descricao", caixa.getDescricao());
+		request.setAttribute("entidade", "caixa");
+		request.setAttribute("action", "caixa/ExcluirCaixa");
+		request.setAttribute("ctx", ctx);
+		return "ExcluirConfirmacao";
+	}
+	@RequestMapping(value="caixa/ExcluirCaixa")
+	public String excluirDelete(Long id, HttpServletRequest request){
+		Caixa caixa = caixaService.find(id);
+		request.setAttribute("descricao", caixa.getDescricao());
+		request.setAttribute("entidade", "caixa");
+		caixaService.delete(caixa);
+		return "ExcluidoSucesso";
+	}
+	
+	 
+	
 	@RequestMapping(value = "caixa/cadastroCaixa", method = RequestMethod.GET)
 	public String cadastroCaixa() {
 		return "caixa/cadastroCaixa";

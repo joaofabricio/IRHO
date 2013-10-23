@@ -42,8 +42,12 @@
 							<a href="${ctx}/pessoa/buscar">Pessoa</a>
 						</li>
 						<li>
+							<a href="${ctx}/tipo/buscar">Tipo de Arquivo</a>
+						</li>
+						<li>
 							<a href="${ctx}/validade/buscar">Validade</a>
 						</li>
+
 					</ul>
 				</li>
 				<li>
