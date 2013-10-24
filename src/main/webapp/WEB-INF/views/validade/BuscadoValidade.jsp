@@ -11,21 +11,16 @@
 
 <form action="" method="post">
 
-	<div id="titulo">Busca Realizada!</div>
+	<div id="titulo">Busca de Validade Realizada!</div>
 
 	<div class="campo">
 		<label for="nome"> Nome:</label>
-		<input type="text" name="nome" size="30" value="${nomePessoa}" />
+		<input type="text" name="descricao" size="30" value="${descricaoValidade}" />
 	</div>
 	
 	<input type="hidden" value="${ordem==null?'nome':ordem}" name="ordem" id="ordem" />
 	
 	<br />
-	
-	<div class="botoes">
-		<input type="submit" value="Nova busca"/>
-	</div>
-	
 
 </form>
 
@@ -38,9 +33,9 @@
 		<c:forEach var="o" items="${result}">
 			<tr>
 				<td>${o.id}</td>
-				<td>${o.nome}</td>
+				<td>${o.descricao}</td>
 				<td style="text-align: center;">
-					<a href="${ctx}/pessoa/editar?id=${o.id}">
+					<a href="${ctx}/validade/buscar?id=${o.id}">
 						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />
 					</a>
 				</td>
