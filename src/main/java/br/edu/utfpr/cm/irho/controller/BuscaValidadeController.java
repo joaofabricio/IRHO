@@ -37,9 +37,6 @@ public class BuscaValidadeController {
 
 		@RequestMapping(value = "validade/buscar", method = RequestMethod.POST)
 		public String buscarCaxia(String descricao, String ordem,
-
-//		@RequestMapping(value = "tipo/buscar", method = RequestMethod.POST)
-		public String buscarCaxia(String tipo, String ordem,
 				HttpServletRequest request, HttpServletResponse response)
 				throws IOException {
 
