@@ -3,11 +3,9 @@
 
 <form action="${ctx}/validade/buscar" method="post">
 
-<<<<<<< HEAD
+
 	<div id="titulo">Busca por validade</div>
-=======
-	<div id="titulo">Busca por Validade</div>
->>>>>>> branch 'master' of https://github.com/joaofabricio/IRHO.git
+
 
 	<div class="campo">
 		<label for="nome"> Validade:</label>

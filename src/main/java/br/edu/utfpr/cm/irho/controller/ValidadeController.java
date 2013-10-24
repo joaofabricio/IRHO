@@ -18,14 +18,20 @@ public class ValidadeController {
 
 	@Autowired
 	private ValidadeService ValidadeService;
+	
+	@RequestMapping(value = "validade/editarValidade", method =  RequestMethod.GET)
+	public String editarValidade(Long id, HttpServletRequest request) {
+		Validade p = ValidadeService.find(id);
+		request.setAttribute("validade", p);
+		
+		return "validade/editarValidade";
+	}
 
 	@RequestMapping(value = "validade/cadastroValidade", method = RequestMethod.GET)
 	public String cadastroValidade() {
 		return "validade/cadastroValidade";
 	}
 
-	
-	
 	@RequestMapping(value = "validade/cadastrarValid", method = RequestMethod.POST)
 	public String cadastroValidade(Integer prazoEmAnos, String descricao, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -49,6 +55,23 @@ public class ValidadeController {
 		validade.setPrazoEmAnos(prazoEmAnos);
 		ValidadeService.save(validade);
 
+		response.sendRedirect("cadastroSucessoValidade?id="+validade.getId());
+		return null;
+	}
+	@RequestMapping(value = "validade/editado", method = RequestMethod.POST)
+	public String cadastrarCaixa(String descricao, Long id,
+								  HttpServletRequest request,
+								  HttpServletResponse response) throws IOException {
+		
+		if (!StringUtils.hasText(descricao)) {
+			request.setAttribute("erro", "Nome invalido.");
+			return cadastroValidade();
+		}
+
+	Validade validade = new Validade();
+	    validade.setId(id);
+	    validade.setDescricao(descricao);
+		ValidadeService.save(validade);
 		response.sendRedirect("cadastroSucessoValidade?id="+validade.getId());
 		return null;
 	}

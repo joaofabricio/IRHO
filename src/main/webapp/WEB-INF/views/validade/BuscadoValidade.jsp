@@ -35,7 +35,7 @@
 				<td>${o.id}</td>
 				<td>${o.descricao}</td>
 				<td style="text-align: center;">
-					<a href="${ctx}/validade/buscar?id=${o.id}">
+					<a href="${ctx}/validade/editarValidade?id=${o.id}">
 						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />
 					</a>
 				</td>
