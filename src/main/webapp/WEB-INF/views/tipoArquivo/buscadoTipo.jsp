@@ -46,7 +46,7 @@
 					</a>
 				</td>
 				<td style="text-align: center;">
-					<a href="javascript: showPopup('${ctx}/pessoa/excluir?id=${o.id}&ctx=${ctx}')">
+					<a href="javascript: showPopup('${ctx}/tipo/excluir?id=${o.id}&ctx=${ctx}')">
 						<img src="${ctx}/images/delete.png" width="16" height="16" alt="delete" title="excluir" />
 					</a>
 				</td>

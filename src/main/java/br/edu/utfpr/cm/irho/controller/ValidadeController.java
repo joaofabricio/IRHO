@@ -11,17 +11,18 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.model.Validade;
 import br.edu.utfpr.cm.irho.service.ValidadeService;
 @Controller
 public class ValidadeController {
 
 	@Autowired
-	private ValidadeService ValidadeService;
+	private ValidadeService validadeService;
 	
 	@RequestMapping(value = "validade/editarValidade", method =  RequestMethod.GET)
 	public String editarValidade(Long id, HttpServletRequest request) {
-		Validade p = ValidadeService.find(id);
+		Validade p = validadeService.find(id);
 		request.setAttribute("validade", p);
 		
 		return "validade/editarValidade";
@@ -32,6 +33,25 @@ public class ValidadeController {
 		return "validade/cadastroValidade";
 	}
 
+	@RequestMapping(value="validade/excluir")
+	public String excluir(Long id, String ctx, HttpServletRequest request){
+		Validade validade = validadeService.find(id);
+		request.setAttribute("id", validade.getId());
+		request.setAttribute("descricao", validade.getDescricao());
+		request.setAttribute("entidade", "validade");
+		request.setAttribute("action", "validade/ExcluirValidade");
+		request.setAttribute("ctx", ctx);
+		return "ExcluirConfirmacao";
+	}
+	@RequestMapping(value="validade/ExcluirValidade")
+	public String excluirDelete(Long id, HttpServletRequest request){
+		Validade validade= validadeService.find(id);
+		request.setAttribute("Nome", validade.getDescricao());
+		request.setAttribute("entidade", "validade");
+		validadeService.delete(validade);
+		return "ExcluidoSucesso";
+	}
+	
 	@RequestMapping(value = "validade/cadastrarValid", method = RequestMethod.POST)
 	public String cadastroValidade(Integer prazoEmAnos, String descricao, HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
@@ -53,7 +73,7 @@ public class ValidadeController {
 		}
 
 		validade.setPrazoEmAnos(prazoEmAnos);
-		ValidadeService.save(validade);
+		validadeService.save(validade);
 
 		response.sendRedirect("cadastroSucessoValidade?id="+validade.getId());
 		return null;
@@ -68,10 +88,10 @@ public class ValidadeController {
 			return cadastroValidade();
 		}
 
-	Validade validade = new Validade();
+		Validade validade = new Validade();
 	    validade.setId(id);
 	    validade.setDescricao(descricao);
-		ValidadeService.save(validade);
+		validadeService.save(validade);
 		response.sendRedirect("cadastroSucessoValidade?id="+validade.getId());
 		return null;
 	}
@@ -79,14 +99,14 @@ public class ValidadeController {
 	@RequestMapping(value = "validade/cadastroSucessoValidade", method = RequestMethod.GET)
 	public String cadastroSucesso(Long id,HttpServletRequest request) {
 		
-		Validade validade=ValidadeService.find(id);
+		Validade validade=validadeService.find(id);
 		request.setAttribute("Descrition", validade.getDescricao());
 		
 		return "validade/cadastroSucessoValidade";
 	}
 
 	public void setValidadeService(ValidadeService validService) {
-		this.ValidadeService = validService;
+		this.validadeService = validService;
 	}
 
 }
