@@ -1,9 +1,10 @@
+<div id="titulo">Excluir </div>
 <div style="text-align:center">
-Tem certeza que deseja excluir o(a) ${entidade} ${descricao}?
+Tem certeza que deseja excluir o(a) ${entidade} <b> ${descricao}?</b>
 </div>
 <button onclick="showPopup('${ctx}/${action}?id=${id}')">
-	sim
+	Sim
 </button>
 <button onclick="closePopup()">
-	não
+	Não
 </button>

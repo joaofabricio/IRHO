@@ -112,37 +112,30 @@ body {
 }
 
 #popUp {
-	margin-right: 25%;
-	margin-left: 25%;
-	width: 50%; 
-	height: 50%;
-	bottom: 25%;
+	margin-right: 40%;
+	margin-left: 40%;
+	border-color: black;
 	overflow: auto;
-/* 	background: #ccc; */
+	
 	opacity: none;
-	top: 25%;
+	top: 30%;
 	position: absolute;
 	display: none;
 	text-align: center;
+
 	border-style: solid;
 	border-radius: 10px;
-	border-width: 0.5pt;
+	border-width: 1 pt;
  	background: #FFFFFF;
 }
 
-/* #popUp a { */
-/* 	font-weight: normal; */
-/* 	color: #000000; */
-/* 	text-decoration: none; */
-/* } */
-
 #popUp #titulo {
- 	background: #5e8ce9;
+	color: white;
+ 	background: #333333;
  	cursor: default;
  	vertical-align: middle;
 /* 	border-style: solid; */
 /* 	border-width: 0.5pt; */
-/* 	padding: 3px; */
 }
 
 #popUp th {
