@@ -76,7 +76,6 @@ public class ArquivoController {
 		
 		String erro = "";
 		
-		
 		if (dataArquivo != null) {
 			Date data;
 			try {
@@ -92,6 +91,14 @@ public class ArquivoController {
 			arquivo.setPessoa(pessoa);
 			if ( pessoa == null) {
 				erro="A pessoa especificada não existe";
+			}
+		}
+		
+		if (idCaixa != null && idCaixa > 0) {
+			Caixa caixa = caixaService.find(idCaixa);
+			arquivo.setCaixa(caixa);
+			if (caixa == null) {
+				erro="A caixa especificada não existe";
 			}
 		}
 		

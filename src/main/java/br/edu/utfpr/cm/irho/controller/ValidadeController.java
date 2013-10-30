@@ -11,7 +11,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.model.Validade;
 import br.edu.utfpr.cm.irho.service.ValidadeService;
 @Controller
@@ -79,19 +78,29 @@ public class ValidadeController {
 		return null;
 	}
 	@RequestMapping(value = "validade/editado", method = RequestMethod.POST)
-	public String cadastrarCaixa(String descricao, Long id,
+	public String cadastrarCaixa(String descricao, Long id, Integer prazoEmAnos,
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
+		
+		Validade validade = new Validade();
+		validade.setId(id);
 		
 		if (!StringUtils.hasText(descricao)) {
 			request.setAttribute("erro", "Nome invalido.");
 			return cadastroValidade();
 		}
 
-		Validade validade = new Validade();
-	    validade.setId(id);
 	    validade.setDescricao(descricao);
+		
+		if (prazoEmAnos == null || prazoEmAnos < 0) {
+			request.setAttribute("erro", "Prazo inválido.");
+			request.setAttribute("validade", validade);
+			return cadastroValidade();
+		}
+
+		validade.setPrazoEmAnos(prazoEmAnos);
 		validadeService.save(validade);
+		
 		response.sendRedirect("cadastroSucessoValidade?id="+validade.getId());
 		return null;
 	}

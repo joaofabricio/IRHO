@@ -14,7 +14,7 @@
 	
 	<div class="campo">
 		<label for="prazo">Prazo (em anos)*:</label>
-		<input type="number" name="prazoEmAnos" />
+		<input type="number" name="prazoEmAnos" value="${validade.prazoEmAnos}" />
 	</div>
 	
 	<br />
