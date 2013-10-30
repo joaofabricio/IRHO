@@ -103,8 +103,12 @@
 				<img src="${ctx}/images/out.ico" />
 			</a>
 
+			<a href="${ctx}/problemas" class="button midlle right">
+				<span class="icon icon92" title="Informar problemas">Problemas</span>
+			</a>
+
 			<a href="${ctx}/sobre" class="button midlle right">
-				<span class="icon icon33" title="Buscar Arquivo">Sobre</span>
+				<span class="icon icon33" title="Sobre">Sobre</span>
 			</a>
 
 		</div>
