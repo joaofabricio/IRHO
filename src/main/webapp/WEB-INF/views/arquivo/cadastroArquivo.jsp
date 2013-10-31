@@ -19,17 +19,16 @@
 		
 		<input type="hidden" name="idPessoa" value="${arquivo.pessoa.id}" id="pessoaId" />
 		<input type="text" 
-			   value="${arquivo.pessoa.nome}" 
+			   value="${arquivo.pessoa? arquivo.pessoa.nome : '[nenhuma]'}" 
 			   id="pessoaNome" 
 			   size="30" 
+			   style="border-style: none;"
 			   readonly="readonly" />
 		<br />
 		<input type="button"
 			   onclick="showPopup('${ctx}/pessoa/popup');"
 			   value="buscar" />
 	</div>
-	
-	
 	
 	<br/>
 	<div class="campo">

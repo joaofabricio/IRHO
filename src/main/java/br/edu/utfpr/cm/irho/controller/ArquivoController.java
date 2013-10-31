@@ -54,27 +54,26 @@ public class ArquivoController {
 		return "arquivo/cadastroArquivo";
 	}
 	@RequestMapping(value = "arquivo/cadastroSubmit", method = RequestMethod.POST)
-	public String buscarSubmit(Long idPessoa,
-							   String dataArquivo,
-							   Long idTipo,
-							   Long idCaixa,
-							   String assunto,
-							   String area,
-							   String observacao,
-							   HttpServletRequest request) {
-		
-		StringBuilder erros = new StringBuilder();
+	public String cadastroSubmit(Long idPessoa,
+							   	 String dataArquivo,
+							   	 Long idTipo,
+							   	 Long idCaixa,
+							   	 String assunto,
+							   	 String area,
+							   	 String observacao,
+							   	 HttpServletRequest request) {
 		
 		Arquivo arquivo = new Arquivo();
 		arquivo.setArea(area);
 		arquivo.setObservacao(observacao);
 		
+		String erro = "";
+		
 		if (!StringUtils.hasText(assunto)) {
-			erros.append("Digite um assunto ");
+			erro = "Digite um assunto";
 		}
 		arquivo.setAssunto(assunto);
 		
-		String erro = "";
 		
 		if (dataArquivo != null) {
 			Date data;
@@ -109,7 +108,7 @@ public class ArquivoController {
  				erro="O tipo especificado não existe";
  			}
  		} else {
- 			erro="Selecione o tipo ";
+ 			erro="Selecione o tipo";
  		}
  		
  		if(StringUtils.hasText(erro)){
