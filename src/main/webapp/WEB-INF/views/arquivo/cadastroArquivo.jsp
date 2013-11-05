@@ -17,20 +17,18 @@
 	<div class="campo">
 		<label for="nome">Pessoa:</label>
 		
-<!-- 		<select name="idPessoa" style="max-width: 250px"> -->
-		<input type="hidden" name="pessoa" value="${arquivo.pessoa.id}" id="pessoaId" />
-		<input type="text" value="${arquivo.pessoa.nome}" id="pessoaNome" size="30" readonly="readonly" />
-			<!--  <option value="-1">Selecione a pessoa</option>
-     		<c:forEach var="o" items="${pessoas}">
-				<option value="${o.id}" ${(arquivo != null && arquivo.pessoa.id == o.id)? 'selected=="selected"':''} id="pessoa${o.id}" >${o.nome}</option>
-			</c:forEach> -->
-<!-- 		</select>   -->
+		<input type="hidden" name="idPessoa" value="${arquivo.pessoa.id}" id="pessoaId" />
+		<input type="text" 
+			   value="${arquivo.pessoa? arquivo.pessoa.nome : '[nenhuma]'}" 
+			   id="pessoaNome" 
+			   size="30" 
+			   style="border-style: none;"
+			   readonly="readonly" />
 		<br />
-		<br/>
-		<input onclick="showPopup('${ctx}/pessoa/popup');" value="Selecionar pessoa..." readonly="readonly" />
+		<input type="button"
+			   onclick="showPopup('${ctx}/pessoa/popup');"
+			   value="buscar" />
 	</div>
-	
-	
 	
 	<br/>
 	<div class="campo">

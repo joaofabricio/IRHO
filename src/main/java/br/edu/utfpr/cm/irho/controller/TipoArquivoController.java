@@ -19,7 +19,7 @@ import br.edu.utfpr.cm.irho.service.TipoService;
 import br.edu.utfpr.cm.irho.service.ValidadeService;
 
 @Controller
-public class CadastroTipoArquivo {
+public class TipoArquivoController {
 	
 	private static final String TIPO_ARQUIVO_CADASTRO = "tipoArquivo/cadastro";
 	@Autowired
@@ -33,7 +33,7 @@ public class CadastroTipoArquivo {
 		Tipo p = tipoService.find(id);
 		request.setAttribute("tipo", p);
 		
-		return "tipo/editarTipo";
+		return "tipoArquivo/editarTipo";
 	}
 
 	@RequestMapping(value="tipo/excluir")
@@ -66,14 +66,15 @@ public class CadastroTipoArquivo {
 	@RequestMapping(value = TIPO_ARQUIVO_CADASTRO, method = RequestMethod.POST)
 	public String cadastrarTipo(String descricao, 
 								  HttpServletRequest request,
-								  HttpServletResponse response) throws IOException {
+								  HttpServletResponse response, Long validadeId) throws IOException {
 		
 		if (!StringUtils.hasText(descricao)) {
 			request.setAttribute("erro", "Descrição invalida.");
 			return TIPO_ARQUIVO_CADASTRO;
 		}
-		
+		Validade validade= validadeService.find(validadeId);
 		Tipo tipo = new Tipo();
+		tipo.setValidade(validade);
 		tipo.setDescricao(descricao);
 		tipoService.save(tipo);
 		

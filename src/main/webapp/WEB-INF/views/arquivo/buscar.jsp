@@ -23,7 +23,7 @@
 	<div class="campo">
 		<label for="tipo">Tipo:</label>
 		<select name="tipo">
-			<option value="">NENHUM</option>
+			<option value="-1">NENHUM</option>
 			<c:forEach var="o" items="${tipos}">
 				<option value="${o.id}">${o.descricao}</option>
 			</c:forEach>
@@ -34,7 +34,7 @@
 	<div class="campo">
 		<label for="caixa"> Caixa:</label>
 		<select name="caixa">
-			<option value="">NENHUMA</option>
+			<option value="-1">NENHUMA</option>
 			<c:forEach var="o" items="${caixas}">
 				<option value="${o.id}">${o.descricao}</option>
 			</c:forEach>

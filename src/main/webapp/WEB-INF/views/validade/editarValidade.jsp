@@ -1,13 +1,14 @@
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <%@ include file="/WEB-INF/views/includes/header.jsp"%>
 
-<form action="${ctx}/validade/cadastrarValid" method="post">
+<form action="${ctx}/validade/editado" method="post">
 
-	<div id="titulo">Cadastro de Validade</div>
+	<div id="titulo">Editar a Validade: <i> ${validade.descricao} </i></div>
 
+	<input type="hidden" value="${validade.id}" name="id" />
 	<div class="campo">
-		<label for="descricao">Descrição*:</label>
-		<input type="text" name="descricao" size="30" />
+		<label for="nome">Nova descricao da validade:</label>
+		<input type="text" name="descricao" size="30" value="${validade.descricao}" />
 	</div>
 	
 	<br />

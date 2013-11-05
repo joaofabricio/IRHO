@@ -31,12 +31,12 @@ public class BuscaTipoArquivoController {
 			return "tipoArquivo/buscarTipo";
 		}
 
-		@RequestMapping(value = "tipoArquivo/buscar", method = RequestMethod.POST)
-		public String buscarTipo(String tipo, String ordem,
+		@RequestMapping(value = "tipo/buscar", method = RequestMethod.POST)
+		public String buscarTipo(String descricao, String ordem,
 				HttpServletRequest request, HttpServletResponse response)
 				throws IOException {
 
-			Criterion criterion = Criterion.like("tipo",tipo);
+			Criterion criterion = Criterion.like("descricao",descricao);
 
 			Order o = Order.ascending(ordem);
 
@@ -44,11 +44,11 @@ public class BuscaTipoArquivoController {
 
 			request.setAttribute("result", retorno);
 
-			request.setAttribute("TipoArquivo", tipo);
+			request.setAttribute("descricao", descricao);
 			return "tipoArquivo/buscadoTipo";
 		}
 
-		@RequestMapping(value = "tipoArquivo/BuscarTipo", method = RequestMethod.GET)
+		@RequestMapping(value = "tipo/BuscarTipo", method = RequestMethod.GET)
 		public String BuscarTipo() {
 			return "tipoArquivo/buscarTipo";
 		}

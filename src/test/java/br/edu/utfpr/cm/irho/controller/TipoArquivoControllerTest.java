@@ -16,7 +16,7 @@ import br.edu.utfpr.cm.irho.service.ValidadeService;
 
 public class TipoArquivoControllerTest {
 
-	private CadastroTipoArquivo cadastrotipoArquivoController = new CadastroTipoArquivo();
+	private TipoArquivoController cadastrotipoArquivoController = new TipoArquivoController();
 
 	@Test
 	public void cadastroPessoaTipoArquivo() {

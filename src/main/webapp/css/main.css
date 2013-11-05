@@ -56,7 +56,7 @@ body {
 	position: absolute;
 	right: 57%;
 }
-.campo input, .campo div, .campo select {
+.campo input, .campo div, .campo select, .campo button {
 	text-align: left;
 	left: 45%;
 	position: absolute;
