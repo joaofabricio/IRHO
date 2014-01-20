@@ -53,8 +53,27 @@ public class ArquivoController {
 		
 		return "arquivo/cadastroArquivo";
 	}
+	
+	@RequestMapping(value = "arquivo/editar", method = RequestMethod.GET)
+	public String editar(Long id, HttpServletRequest request) {
+		
+		Collection<Tipo> tipos = tipoService.findByCriterion(Order.ascending("descricao"));
+		request.setAttribute("tipos", tipos);
+		
+		Collection<Caixa> caixas = caixaService.findByCriterion(Order.ascending("descricao"));
+		request.setAttribute("caixas", caixas);
+		
+		Collection<Pessoa> pessoas = pessoaService.findByCriterion(Order.ascending("nome"));
+		request.setAttribute("pessoas", pessoas);
+		
+		request.setAttribute("arquivo", arquivoService.find(id));
+		
+		return "arquivo/editar";
+	}
+
 	@RequestMapping(value = "arquivo/cadastroSubmit", method = RequestMethod.POST)
-	public String cadastroSubmit(Long idPessoa,
+	public String cadastroSubmit(Long id,
+								 Long idPessoa,
 							   	 String dataArquivo,
 							   	 Long idTipo,
 							   	 Long idCaixa,
@@ -64,6 +83,7 @@ public class ArquivoController {
 							   	 HttpServletRequest request) {
 		
 		Arquivo arquivo = new Arquivo();
+		arquivo.setId(id);
 		arquivo.setArea(area);
 		arquivo.setObservacao(observacao);
 		
@@ -122,6 +142,26 @@ public class ArquivoController {
 		return "arquivo/cadastroSucessoArquivo";
 		
 		
+	}
+	
+	@RequestMapping(value="arquivo/excluir")
+	public String excluir(Long id, String ctx, HttpServletRequest request){
+		Arquivo arquivo=arquivoService.find(id);
+		request.setAttribute("id", arquivo.getId());
+		request.setAttribute("descricao", arquivo.getAssunto()+" de "+arquivo.getDataArquivoFormatada());
+		request.setAttribute("entidade", "arquivo");
+		request.setAttribute("action", "arquivo/excluido");
+		request.setAttribute("ctx", ctx);
+		return "ExcluirConfirmacao";
+	}
+	
+	@RequestMapping(value="arquivo/excluido")
+	public String excluirDelete(Long id, HttpServletRequest request){
+		Arquivo arquivo = arquivoService.find(id);
+		request.setAttribute("Nome", arquivo.getAssunto()+" de "+arquivo.getDataArquivoFormatada());
+		request.setAttribute("entidade", "arquivo");
+		arquivoService.delete(arquivo);
+		return "ExcluidoSucesso";
 	}
 	
 	public void setArquivoService(ArquivoService arquivoService) {

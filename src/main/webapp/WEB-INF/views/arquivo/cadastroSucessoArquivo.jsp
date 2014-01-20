@@ -3,12 +3,13 @@
 
 <div id="titulo">Arquivo cadastrado com Sucesso!</div>
 
-
 <br />
 
 <div class="botoes">
 	<button onclick="location.href='${ctx}/arquivo/cadastroArquivo'">Realizar
 		novo Cadastro</button>
+		
+	<button onclick="location.href='${ctx}/arquivo/buscar'">Buscar Arquivo</button>
 </div>
 
 <%@ include file="/WEB-INF/views/includes/footer.jsp"%>

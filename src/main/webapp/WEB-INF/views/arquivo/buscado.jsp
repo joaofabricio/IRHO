@@ -41,9 +41,14 @@
 	<br />
 	
 	<div class="campo">
-		<label for="dataArquivo"> Data:</label>
-		<input type="date" name="dataArquivo" value="${dataArquivo}" />
+		<label for="dataArquivoInicio">Entre:</label>
+		
+		<input type="text" name="dataArquivoInicio" id="dataArquivoInicio" size="10" value="${dataArquivoInicio}" />
+		<br />
+		<label for="dataArquivoFim">e</label>
+		<input type="text" name="dataArquivoFim" id="dataArquivoFim" size="10" value="${dataArquivoFim}" />
 	</div>
+
 
 	<br />
 
@@ -62,6 +67,8 @@
 			<th>Pessoa</th>
 			<th>Tipo</th>
 			<th>Caixa</th>
+			<th>editar</th>
+			<th>excluir</th>
 		</tr>
 		<c:forEach var="o" items="${arquivos}">
 			<tr>
@@ -70,12 +77,28 @@
 				<td>${o.pessoa.nome}</td>
 				<td>${o.tipo.descricao}</td>
 				<td>${o.caixa.descricao}</td>
+				<td style="text-align: center;">
+					<a href="${ctx}/arquivo/editar?id=${o.id}">
+						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />
+					</a>
+				</td>
+				<td style="text-align: center;">
+					<a href="javascript: showPopup('${ctx}/arquivo/excluir?id=${o.id}&ctx=${ctx}')">
+						<img src="${ctx}/images/delete.png" width="16" height="16" alt="delete" title="excluir" />
+					</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
  <br />
-	<div class="botoes">
-		<button onclick="location.href='${ctx}/arquivo/buscar'"> Realizar nova busca</button>
-	</div>
+<!-- 	<div class="botoes"> -->
+<%-- 		<button onclick="location.href='${ctx}/arquivo/buscar'"> Realizar nova busca</button> --%>
+<!-- 	</div> -->
+<script type="text/javascript">
+	$(function() {
+		$("#dataArquivoInicio").mask("99/99/9999");
+		$("#dataArquivoFim").mask("99/99/9999");
+	});
+</script>
 	
-	<%@ include file="/WEB-INF/views/includes/footer.jsp"%>
+<%@ include file="/WEB-INF/views/includes/footer.jsp"%>

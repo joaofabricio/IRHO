@@ -1,7 +1,6 @@
 package br.edu.utfpr.cm.irho.controller;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -22,6 +21,7 @@ import br.edu.utfpr.cm.irho.service.CaixaService;
 import br.edu.utfpr.cm.irho.service.PessoaService;
 import br.edu.utfpr.cm.irho.service.TipoService;
 import br.edu.utfpr.cm.libutfcm.dao.Criterion;
+import br.edu.utfpr.cm.libutfcm.util.DateUtil;
 
 @Controller
 public class BuscaArquivoController {
@@ -50,16 +50,18 @@ public class BuscaArquivoController {
 		return "arquivo/buscar";
 	}
 	
-	@RequestMapping(value = "arquivo/buscarSubmit", method = RequestMethod.POST)
+	@RequestMapping(value = "arquivo/buscarSubmit", method = {RequestMethod.POST,  RequestMethod.GET})
 	public String buscarSubmit(String pessoa,
-							   String dataArquivo,
+							   String dataArquivoInicio,
+							   String dataArquivoFim,
 							   Long tipo,
 							   Long caixa,
 							   String assunto,
 							   HttpServletRequest request) {
 		buscaArquivo(request);
 		request.setAttribute("pessoa", pessoa);
-		request.setAttribute("dataArquivo", dataArquivo);
+		request.setAttribute("dataArquivoInicio", dataArquivoInicio);
+		request.setAttribute("dataArquivoFim", dataArquivoFim);
 		request.setAttribute("tipo", tipo);
 		request.setAttribute("caixa", caixa);
 		request.setAttribute("assunto", assunto);
@@ -81,14 +83,23 @@ public class BuscaArquivoController {
 			criterios.add(Criterion.equal("caixa", c));
 		}
 		
-		if (dataArquivo != null) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			Date data;
+		if (StringUtils.hasText(dataArquivoInicio) && dataArquivoInicio != null) {
+			Date dataInicio, dataFim;
 			try {
-				data = sdf.parse(dataArquivo);
-				criterios.add(Criterion.equal("dataArquivo", data));
+				dataInicio = DateUtil.converteDataDDMMAAAA(dataArquivoInicio);
+				dataFim = DateUtil.converteDataDDMMAAAA(dataArquivoFim);
+				
+				if (dataInicio.after(dataFim)) {
+					request.setAttribute("erro", "A data final não pode ser menor do que a inicial");
+					return buscaArquivo(request);
+				}
+				
+				criterios.add(Criterion.between("dataArquivo", dataInicio, dataFim));
+				
 			} catch (ParseException e) {
 				//data invalida
+				request.setAttribute("erro", "Não foi possível atribuir o período de datas. Digite as datas no formato dd/mm/aaaa");
+				return buscaArquivo(request);
 			}
 		}
 		
@@ -97,8 +108,6 @@ public class BuscaArquivoController {
 		}
 		
 		Collection<Arquivo> arquivos = arquivoService.findByCriterion(criterios.toArray(new Criterion[0]));
-		
-
 		request.setAttribute("arquivos", arquivos);
 		
 		return "arquivo/buscado";

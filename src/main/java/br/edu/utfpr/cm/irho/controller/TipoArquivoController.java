@@ -12,7 +12,6 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.model.Tipo;
 import br.edu.utfpr.cm.irho.model.Validade;
 import br.edu.utfpr.cm.irho.service.TipoService;
@@ -32,6 +31,8 @@ public class TipoArquivoController {
 	public String editarTipo(Long id, HttpServletRequest request) {
 		Tipo p = tipoService.find(id);
 		request.setAttribute("tipo", p);
+		
+		request.setAttribute("validades", validadeService.findByCriterion());
 		
 		return "tipoArquivo/editarTipo";
 	}
@@ -69,8 +70,8 @@ public class TipoArquivoController {
 								  HttpServletResponse response, Long validadeId) throws IOException {
 		
 		if (!StringUtils.hasText(descricao)) {
-			request.setAttribute("erro", "Descrição invalida.");
-			return TIPO_ARQUIVO_CADASTRO;
+			request.setAttribute("erro", "Descrição inválida");
+			return cadastroTipoArquivo(request);
 		}
 		Validade validade= validadeService.find(validadeId);
 		Tipo tipo = new Tipo();
@@ -84,7 +85,7 @@ public class TipoArquivoController {
 	}
 	
 	@RequestMapping(value = "tipo/editado", method = RequestMethod.POST)
-	public String cadastrarTipo(String descricao, Long id,
+	public String cadastrarTipo(String descricao, Long id, Long validadeId,
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
 		
@@ -95,10 +96,14 @@ public class TipoArquivoController {
 
 		Tipo tipo = new Tipo();
 		tipo.setId(id);
+		Validade validade= validadeService.find(validadeId);
+		tipo.setValidade(validade);
 		tipo.setDescricao(descricao);
 		tipoService.save(tipo);
+
+		request.setAttribute("msg", "Tipo de arquivo alterado com sucesso.");
 		
-		response.sendRedirect("cadastroSucessoTipo?id="+tipo.getId());
+		response.sendRedirect("../tipoArquivo/cadastradoSucesso?id="+tipo.getId());
 		return null;
 	}
 	

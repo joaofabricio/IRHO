@@ -3,21 +3,29 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Controle de Problemas no laboratório</title>
+	<title>Imperium Rerum Humanis Opibus</title>
+	
+<!-- 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
 	
 	<link rel="shortcut icon" href="<c:url value='/images/icon.png'/>" />
 
     <link rel="stylesheet" href="<c:url value='/css/blueprint/screen.css'/>" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="<c:url value='/css/blueprint/print.css'/>"  type="text/css" media="print">
+    <link rel="stylesheet" href="<c:url value='/css/menu_style.css'/>"  type="text/css">
+    <link rel="stylesheet" href="<c:url value='/css/skin/css3-buttons-grey.css'/>" type="text/css" media="screen">
+    <link rel="stylesheet" href="<c:url value='/css/css3-buttons.css'/>" type="text/css" media="screen">
+    <!--[if lt IE 8]>
+        <link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection">
+    <![endif]-->
     <link rel="stylesheet" href="<c:url value='/css/main.css'/>"  type="text/css">
 
-    <script src="<c:url value='/js/jquery-1.6.1.min.js'/>"></script>
+    <script src="<c:url value='/js/jquery.min.js'/>"></script>
     <script src="<c:url value='/js/jquery.periodicalupdater.js'/>"></script>
 </head>
 <body>
 	<div id="conteudo">
 		<div class="botoes">
-			<img src="${ctx}/images/utfpr.jpeg" alt="utfpr" width="472" height="251" />
+			<img src="${ctx}/images/login-topo.jpeg" alt="irho" width="472" height="251" />
 		</div>
 		<c:if test="${not empty param.error}">
    			<div class="error">
@@ -46,5 +54,4 @@
 <!-- 					<a href="recuperaSenha">Esqueceu a senha?</a> -->
 <!-- 				</div> -->
 			</form>
-	
-	<%@ include file="/WEB-INF/views/includes/footer.jsp"%>
+<%@ include file="/WEB-INF/views/includes/footer.jsp"%>

@@ -43,8 +43,12 @@
 	<br />
 	
 	<div class="campo">
-		<label for="dataArquivo"> Data:</label>
-		<input type="date" name="dataArquivo" />
+		<label for="dataArquivoInicio">Entre:</label>
+		
+		<input type="text" name="dataArquivoInicio" id="dataArquivoInicio" size="10" value="${dataArquivoInicio}" />
+		<br />
+		<label for="dataArquivoFim">e</label>
+		<input type="text" name="dataArquivoFim" id="dataArquivoFim" size="10" value="${dataArquivoFim}" />
 	</div>
 
 	<br />
@@ -55,6 +59,11 @@
 
 </form>
 
-
+<script type="text/javascript">
+	$(function() {
+		$("#dataArquivoInicio").mask("99/99/9999");
+		$("#dataArquivoFim").mask("99/99/9999");
+	});
+</script>
 
 <%@ include file="/WEB-INF/views/includes/footer.jsp"%>

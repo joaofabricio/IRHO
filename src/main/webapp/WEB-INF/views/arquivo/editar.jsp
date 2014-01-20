@@ -12,7 +12,9 @@
 
 <form action="${ctx}/arquivo/cadastroSubmit" method="post">
 
-	<div id="titulo"> Cadastro de Arquivos</div>
+	<div id="titulo">Editando Arquivo</div>
+	
+	<input type="hidden" name="id" value="${arquivo.id}" id="id" />
 	<br/>
 	<div class="campo">
 		<label for="nome">Pessoa:</label>
@@ -92,7 +94,8 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#dataArquivo").mask("99/99/9999");
+		$("#dataArquivoInicio").mask("99/99/9999");
+		$("#dataArquivoFim").mask("99/99/9999");
 	});
 </script>
 <%@ include file="/WEB-INF/views/includes/footer.jsp"%>
