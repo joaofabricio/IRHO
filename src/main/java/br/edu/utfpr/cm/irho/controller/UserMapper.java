@@ -28,11 +28,9 @@ public class UserMapper extends LdapUserDetailsMapper {
 		usuario.setLogin(username);
 		usuario = usuarioService.findUniqueByExample(usuario);
 		
-//		if (usuario == null) {
+		if (usuario != null) {
 			essence.addAuthority(new SimpleGrantedAuthority("ROLE_USER"));
-//		} else {
-//			essence.addAuthority(new SimpleGrantedAuthority(usuario.getAcesso().toString()));
-//		}
+		}
 		
 		return essence.createUserDetails();
 	}

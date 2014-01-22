@@ -43,11 +43,12 @@
 	<br />
 	
 	<div class="campo">
-		<label for="dataArquivoInicio">Entre:</label>
+		<label for="dataArquivoInicio">Data inicial:</label>
 		
 		<input type="text" name="dataArquivoInicio" id="dataArquivoInicio" size="10" value="${dataArquivoInicio}" />
 		<br />
-		<label for="dataArquivoFim">e</label>
+		<br />
+		<label for="dataArquivoFim">Data Final:</label>
 		<input type="text" name="dataArquivoFim" id="dataArquivoFim" size="10" value="${dataArquivoFim}" />
 	</div>
 

@@ -1,3 +1,5 @@
+<%@ page import="net.tanesha.recaptcha.ReCaptcha" %>
+<%@ page import="net.tanesha.recaptcha.ReCaptchaFactory" %>
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,7 +27,7 @@
 <body>
 	<div id="conteudo">
 		<div class="botoes">
-			<img src="${ctx}/images/login-topo.jpeg" alt="irho" width="472" height="251" />
+			<img src="${ctx}/images/login-topo.jpeg" alt="irho" width="354" height="188" />
 		</div>
 		<c:if test="${not empty param.error}">
    			<div class="error">
@@ -35,7 +37,7 @@
 		</c:if>
 		<div id="corpo">
 			<form action="${ctx}/j_spring_security_check" method="post" id="formLogin">
-				<div id="titulo">Antes de relatar um problema, por favor identifique-se.</div>
+				<div id="titulo">Por favor, identifique-se.</div>
 <!-- 				<span style="color: #F0000; font-size: 2">Preencha com o usuário e senha institucionais.</span> -->
 				<div class="campo">
 					<label for="j_username">Usuário:</label>
@@ -47,6 +49,12 @@
 					<input type="password" value="" id="j_password" name="j_password" />
 				</div>
 				<br />
+				<br />
+				<div style="text-align: center;">Digite as duas palavras apresentadas abaixo:</div>
+				<%
+				  ReCaptcha c = ReCaptchaFactory.newReCaptcha("6LcCRu0SAAAAAMDfCMHmJiUGlSVC8zQ8YxQsGSNJ", "6LcCRu0SAAAAAGO_25YIE3SoAaZZSBUjM4X7WmFC", false);
+				  out.print(c.createRecaptchaHtml(null, null));
+				%>
 				<div class="botoes">
 					<input type="submit" value="Login" />
 				</div>
