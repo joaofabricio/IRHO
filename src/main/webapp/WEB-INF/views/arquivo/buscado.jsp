@@ -6,14 +6,14 @@
 
 	<div class="campo">
 		<label for="pessoa">Pessoa:</label>
-		<input type="text" name="pessoa" value="${pessoa}" size="30" />
+		<input type="text" name="pessoa" size="30" />
 	</div>
 	<br />
 
 
 	<div class="campo">
 		<label for="assunto">Assunto:</label>
-		<input type="text" name="assunto" size="30" value="${assunto}" />
+		<input type="text" name="assunto" size="30" />
 	</div>
 	<br />
 
@@ -21,9 +21,9 @@
 	<div class="campo">
 		<label for="tipo">Tipo:</label>
 		<select name="tipo">
-			<option value="">NENHUM</option>
+			<option value="-1">NENHUM</option>
 			<c:forEach var="o" items="${tipos}">
-				<option value="${o.id}" ${tipo!=null && tipo==o.id?'selected="selected"':'' }>${o.descricao}</option>
+				<option value="${o.id}">${o.descricao}</option>
 			</c:forEach>
 		</select>
 	</div>
@@ -32,23 +32,23 @@
 	<div class="campo">
 		<label for="caixa"> Caixa:</label>
 		<select name="caixa">
-			<option value="">NENHUMA</option>
+			<option value="-1">NENHUMA</option>
 			<c:forEach var="o" items="${caixas}">
-				<option value="${o.id}" ${caixa!=null && caixa==o.id?'selected="selected"':'' }>${o.descricao}</option>
+				<option value="${o.id}">${o.descricao}</option>
 			</c:forEach>
 		</select>
 	</div>
 	<br />
 	
 	<div class="campo">
-		<label for="dataArquivoInicio">Entre:</label>
+		<label for="dataArquivoInicio">Data inicial:</label>
 		
 		<input type="text" name="dataArquivoInicio" id="dataArquivoInicio" size="10" value="${dataArquivoInicio}" />
 		<br />
-		<label for="dataArquivoFim">e</label>
+		<br />
+		<label for="dataArquivoFim">Data Final:</label>
 		<input type="text" name="dataArquivoFim" id="dataArquivoFim" size="10" value="${dataArquivoFim}" />
 	</div>
-
 
 	<br />
 
@@ -67,6 +67,7 @@
 			<th>Pessoa</th>
 			<th>Tipo</th>
 			<th>Caixa</th>
+			<th>ver</th>
 			<th>editar</th>
 			<th>excluir</th>
 		</tr>
@@ -77,6 +78,11 @@
 				<td>${o.pessoa.nome}</td>
 				<td>${o.tipo.descricao}</td>
 				<td>${o.caixa.descricao}</td>
+				<td style="text-align: center;">
+					<a href="${ctx}/arquivo?id=${o.id}">
+						<img src="${ctx}/images/view.png" width="16" height="16" alt="ver" title="ver" />
+					</a>
+				</td>
 				<td style="text-align: center;">
 					<a href="${ctx}/arquivo/editar?id=${o.id}">
 						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />

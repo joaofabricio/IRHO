@@ -94,8 +94,7 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#dataArquivoInicio").mask("99/99/9999");
-		$("#dataArquivoFim").mask("99/99/9999");
+		$("#dataArquivo").mask("99/99/9999");
 	});
 </script>
 <%@ include file="/WEB-INF/views/includes/footer.jsp"%>

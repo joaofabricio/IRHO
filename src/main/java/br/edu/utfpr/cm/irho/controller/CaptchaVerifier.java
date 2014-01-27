@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -94,6 +95,7 @@ public class CaptchaVerifier extends OncePerRequestFilter {
 			resetCaptchaFields();
 		}
 
+		
 		// Proceed with the remaining filters
 		chain.doFilter(req, res);
 	}

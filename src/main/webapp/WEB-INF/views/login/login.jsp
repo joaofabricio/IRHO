@@ -50,10 +50,10 @@
 				</div>
 				<br />
 				<br />
-				<div style="text-align: center;">Digite as duas palavras apresentadas abaixo:</div>
 				<%
-				  ReCaptcha c = ReCaptchaFactory.newReCaptcha("6LcCRu0SAAAAAMDfCMHmJiUGlSVC8zQ8YxQsGSNJ", "6LcCRu0SAAAAAGO_25YIE3SoAaZZSBUjM4X7WmFC", false);
-				  out.print(c.createRecaptchaHtml(null, null));
+								out.print("<div style=\"text-align: center;\">Digite as duas palavras apresentadas abaixo:</div>");
+								ReCaptcha c = ReCaptchaFactory.newReCaptcha("6LcCRu0SAAAAAMDfCMHmJiUGlSVC8zQ8YxQsGSNJ", "6LcCRu0SAAAAAGO_25YIE3SoAaZZSBUjM4X7WmFC", false);
+								out.print(c.createRecaptchaHtml(null, null));
 				%>
 				<div class="botoes">
 					<input type="submit" value="Login" />

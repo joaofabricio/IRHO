@@ -112,8 +112,7 @@ body {
 }
 
 #popUp {
-	margin-right: 40%;
-	margin-left: 40%;
+	margin-left: 39%;
 	border-color: black;
 	overflow: auto;
 	
@@ -122,11 +121,14 @@ body {
 	position: absolute;
 	display: none;
 	text-align: center;
+ 	width: 25%;
 
 	border-style: solid;
 	border-radius: 10px;
 	border-width: 1 pt;
  	background: #FFFFFF;
+ 	
+ 	max-height: 400;
 }
 
 #popUp #titulo {
@@ -138,21 +140,30 @@ body {
 /* 	border-width: 0.5pt; */
 }
 
-#popUp th {
-	cursor: default;
-	border-style: solid;
-	color: #000000;
-	font-style: normal;
+#popUp th td {
+	text-align: center;
 }
 
 #popUp tr {
+	text-align: center;
+	color: #0000FF;
 	cursor: pointer;
 	border-style: solid;
+	text-decoration: none;
+}
+
+#popUp tr th {
+	font-style: normal;
+	text-decoration: none;
 }
 
 #popUp tr:hover {
-	color: #0000FF;
 	font-style: italic;
+	text-decoration: overline;
+}
+
+#popUp tr a {
+	text-decoration: none;
 }
 
 /* 	background-color: #00000; */
@@ -197,4 +208,10 @@ body {
 #recaptcha_widget_div {
 	text-align: center;
 	margin-left: 20%;
+}
+
+.input_view {
+	border-style: none;
+	border-width: 0;
+	width: auto;
 }

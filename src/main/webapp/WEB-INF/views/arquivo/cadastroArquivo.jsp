@@ -8,6 +8,11 @@
 		document.getElementById("pessoaId").value = id;
 		document.getElementById("pessoaNome").value=nome;
 	}
+	function selecionarCaixa(id, nome) {
+		document.getElementById("caixaId").value = id;
+		document.getElementById("caixaDescricao").value=nome;
+	}
+
 </script>
 
 <form action="${ctx}/arquivo/cadastroSubmit" method="post">
@@ -28,6 +33,9 @@
 		<input type="button"
 			   onclick="showPopup('${ctx}/pessoa/popup');"
 			   value="buscar" />
+		<input type="button" style="left: 53%"
+			   onclick="selecionarPessoa(-1, '[nenhuma]');"
+			   value="remover" />
 	</div>
 	
 	<br/>
@@ -57,14 +65,22 @@
 	<br/>
 	
 	<div class="campo">
-		<label for="descricao"> Caixa:</label>
+		<label for="caixaDescricao">Caixa:</label>
 		
-		<select name="idCaixa" style="max-width: 250px">
-		<option value="-1">Selecione a caixa</option>
-			<c:forEach var="o" items="${caixas}">
-				<option value="${o.id}" ${(arquivo != null && arquivo.caixa.id == o.id)? 'selected=="selected"':''}>${o.descricao}</option>
-			</c:forEach>
-		</select>
+		<input type="hidden" name="idCaixa" value="${arquivo.caixa.id}" id="caixaId" />
+		<input type="text" 
+			   value="${arquivo.caixa!=null? arquivo.caixa.descricao : '[nenhuma]'}" 
+			   id="caixaDescricao" 
+			   size="30" 
+			   style="border-style: none;"
+			   readonly="readonly" />
+		<br />
+		<input type="button"
+			   onclick="showPopup('${ctx}/caixa/popup');"
+			   value="buscar" />
+		<input type="button" style="left: 52%"
+			   onclick="selecionarCaixa(-1, '[nenhuma]');"
+			   value="remover" />
 	</div>
 	<br/>
 	<div class="campo">

@@ -164,6 +164,19 @@ public class ArquivoController {
 		return "ExcluidoSucesso";
 	}
 	
+	@RequestMapping(value = "arquivo")
+	public String visualizar(Long id, HttpServletRequest request) {
+		Arquivo arquivo = arquivoService.find(id);
+		
+		if (arquivo == null) {
+			request.setAttribute("erro", "Não foi possível encontrar o arquivo com o id "+id);
+			return cadastroArquivo(request);
+		}
+		
+		request.setAttribute("arquivo", arquivo);
+		return "arquivo/visualizar";
+	}
+	
 	public void setArquivoService(ArquivoService arquivoService) {
 		this.arquivoService = arquivoService;
 	}
