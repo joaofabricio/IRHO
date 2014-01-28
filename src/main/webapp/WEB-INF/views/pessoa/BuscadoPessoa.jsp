@@ -53,9 +53,5 @@
 			</tr>
 		</c:forEach>
 	</table>
- <br />
-	<div class="botoes">
-		<button onclick="location.href='${ctx}/pessoa/BuscarPessoa'"> Realizar nova busca</button>
-	</div>
 	
 	<%@ include file="/WEB-INF/views/includes/footer.jsp"%>

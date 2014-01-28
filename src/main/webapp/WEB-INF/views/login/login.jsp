@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Imperium Rerum Humanis Opibus</title>
+<title>IRHO - Índice de Arquivos físicos da UTFPRCM</title>
 <link rel="icon" href="/favicon.ico" type="image/iRHologin.ico" />
 
 <!-- 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
@@ -33,51 +33,89 @@
 <script src="<c:url value='/js/jquery.periodicalupdater.js'/>"></script>
 </head>
 <body>
+	<c:if test="${not empty param.error}">
+		<div class="error">
+			Ocorreu um erro na tentativa de Login.<br />
+			${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
+		</div>
+	</c:if>
 	<div id="conteudoLogin">
-		<c:if test="${not empty param.error}">
-			<div class="error">
-				Ocorreu um erro na tentativa de Login.<br />
-				${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message}
-			</div>
-		</c:if>
 
-		<img src="${ctx}/images/iRHologin.png" alt="utfpr" width="350" height="370" />
-
-
-		<form action="${ctx}/j_spring_security_check" method="post" id="formLogin">
-			<label>Por favor, identifique-se.</label>
-			<!-- 				<span style="color: #F0000; font-size: 2">Preencha com o usuário e senha institucionais.</span> -->
-			<div>
-				<label for="j_username">Usuário:</label> 
-				<input type="text" 
-					   value="" 
-					   id="j_username" 
-					   name="j_username" 
-					   autofocus="autofocus" 
-					   autocomplete="off"
-					   size="15" />
-			</div>
-			<br />
-			<div>
-				<label for="j_password">Senha:&nbsp;&nbsp;&nbsp;</label>
-				<input type="password" 
-					   value=""
-					   id="j_password" 
-					   name="j_password" 
-					   size="15" />
-			</div>
-			<br /> <br />
-<%-- 			<% --%>
-<!-- 				out.print("<div style=\"text-align: center;\">Digite as duas palavras apresentadas abaixo:</div>"); -->
-<!-- 				ReCaptcha c = ReCaptchaFactory.newReCaptcha( -->
-<!-- 						"6LcCRu0SAAAAAMDfCMHmJiUGlSVC8zQ8YxQsGSNJ", -->
-<!-- 						"6LcCRu0SAAAAAGO_25YIE3SoAaZZSBUjM4X7WmFC", false); -->
-<!-- 				out.print(c.createRecaptchaHtml(null, null)); -->
-<!-- 			%> -->
-			<div>
-				<input type="submit" value="Login" />
-			</div>
-		</form>
+		<div>
+			<img src="${ctx}/images/iRHologin.png" alt="utfpr" width="350" height="370" style="max-width: 100%" />
+		</div>
+		<div id="formLogin">
+			<form action="${ctx}/j_spring_security_check" method="post">
+				<label>Por favor, identifique-se.</label>
+				<br />
+				<!-- 				<span style="color: #F0000; font-size: 2">Preencha com o usuário e senha institucionais.</span> -->
+<!-- 				<div> -->
+					<label for="j_username">Usuário:</label> 
+					<input type="text" 
+						   value="<%
+								Cookie[] cookies = request.getCookies();
+								boolean hasLogin = false;
+								if (cookies != null) {
+									for (Cookie cookie : cookies) {
+										if (cookie.getName().equals("login_irho")) {
+											out.print(cookie.getValue());
+											hasLogin = true;
+										}
+									}
+								}
+								if (!hasLogin)
+									out.print("\" autofocus=\"autofocus");
+									
+						   %>" 
+						   id="j_username" 
+						   name="j_username" 
+						   autocomplete="off"
+						   size="15" />
+<!-- 				</div> -->
+				<br />
+<!-- 				<div> -->
+					<label for="j_password">Senha:&nbsp;&nbsp;&nbsp;</label>
+					<input type="password" 
+						   value=""
+						   id="j_password" 
+						   name="j_password" 
+						   <%= hasLogin? "autofocus=\"autofocus\"" : "" %>
+						   size="15" />
+<!-- 				</div> -->
+				<br />
+	<%-- 			<% --%>
+	<!-- 				out.print("<div style=\"text-align: center;\">Digite as duas palavras apresentadas abaixo:</div>"); -->
+	<!-- 				ReCaptcha c = ReCaptchaFactory.newReCaptcha( -->
+	<!-- 						"6LcCRu0SAAAAAMDfCMHmJiUGlSVC8zQ8YxQsGSNJ", -->
+	<!-- 						"6LcCRu0SAAAAAGO_25YIE3SoAaZZSBUjM4X7WmFC", false); -->
+	<!-- 				out.print(c.createRecaptchaHtml(null, null)); -->
+	<!-- 			%> -->
+<!-- 				<div> -->
+					<input type="submit" value="Login" />
+<!-- 				</div> -->
+				<br />
+				<br />
+				<br />
+			</form>
+			<span style="width: 50%">
+				O IRHO é um sistema desenvolvido pela COGETI-CM com o objetivo de indexar os arquivos
+				físicos armazenados nos setores da UTFPR Câmpus Campo Mourão
+				<br />
+				<br />
+				Equipe de desenvolvimento:
+				<br />
+				Bruno Maiolli Razera
+				<br />
+				Felipe Mendonça Rodrigues
+				<br />
+				João Fabrício Filho
+				<br />
+				Marcus Vinicius Mariot
+				<br />
+				<br />
+				Dúvidas ou sugestões: cogeti-cm@utfpr.edu.br ou pelo telefone (44) 3518 1422
+			</span>
+		</div>
 	</div>
 </body>
 </html>

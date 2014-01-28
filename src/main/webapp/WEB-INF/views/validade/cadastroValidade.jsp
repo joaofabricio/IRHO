@@ -6,6 +6,10 @@
 	<div id="titulo">Cadastro de Validade</div>
 
 	<div class="campo">
+		<span class="legendaCampo">
+			Digite uma descrição para identificar a validade
+		</span>
+		<br />
 		<label for="descricao">Descrição*:</label>
 		<input type="text" name="descricao" size="30" value="${validade.descricao}"
 			   style="${erro!=null? 'border-color: red;' : ''}" />
@@ -14,6 +18,10 @@
 	<br />
 	
 	<div class="campo">
+		<span class="legendaCampo">
+			Digite um número para especificar o prazo de validade em anos
+		</span>
+		<br />
 		<label for="prazo">Prazo (em anos)*:</label>
 		<input type="number" name="prazoEmAnos" value="${validade.prazoEmAnos}"
 			   style="${erro!=null? 'border-color: red;' : ''}" />

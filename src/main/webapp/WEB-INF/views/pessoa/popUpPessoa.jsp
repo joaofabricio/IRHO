@@ -1,9 +1,8 @@
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <div id="titulo">Selecione uma pessoa</div>
-<form>
-	<label>pesquisar por nome: </label>
-	<input type="text" autofocus="autofocus" id="filtroNomePessoa" onkeypress="filtrarPessoa()" />
-</form>
+<label>pesquisar por nome: </label>
+<input type="text" autofocus="autofocus" id="filtroNomePessoa" value="${nome}" />
+<button onclick="showPopup('${ctx}/pessoa/popup?nome='+document.getElementById('filtroNomePessoa').value);">ok</button>
 <table id="results">
 	<tr>
 		<th><a href="javascript: ordenar('id')">id</a></th>

@@ -6,6 +6,10 @@
 	<div id="titulo">Cadastro de Pessoas</div>
 
 	<div class="campo">
+		<span class="legendaCampo">
+			Digite o nome da pessoa
+		</span>
+		<br />
 		<label for="nome">Nome*:</label>
 		<input type="text" name="nome" size="30" value="${pessoa.nome}"
 			   style="${erro!=null? 'border-color: red;' : ''}" />

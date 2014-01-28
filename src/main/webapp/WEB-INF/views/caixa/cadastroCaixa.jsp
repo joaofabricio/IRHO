@@ -6,7 +6,11 @@
 	<div id="titulo">Cadastro de Caixas</div>
 
 	<div class="campo">
-		<label for="descricao">Nome da Caixa*:</label>
+		<span class="legendaCampo">
+			Digite uma descrição para identificar a caixa
+		</span>
+		<br />
+		<label for="descricao">Descrição*:</label>
 		<input type="text" name="descricao" size="30" value="${caixa.descricao}"
 			   style="${erro!=null? 'border-color: red;' : ''}" />
 	</div>

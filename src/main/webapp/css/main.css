@@ -16,11 +16,16 @@ body {
     min-width: 60%;
     min-height: 95%;
     position: absolute;
-   background-color: #FFFFFF;
+    background-color: #FFFFFF;
+/*     background-image: url("../images/iRHobaixo.png"); */
+/*     background-position: bottom; */
+/*     background-repeat: no-repeat; */
+/*     background-position: right; */
 }
 
 #corpo {
-	margin-top: 10px;
+	margin-top: 15px;
+	position: static;
 	clear: both;
 }
 
@@ -40,6 +45,31 @@ body {
 	width: 100%;
 }
 
+#footer {
+/* 	vertical-align: bottom; */
+	position: absolute;
+	bottom: 0;
+/* 	clear: both; */
+/* 	padding: 10px; */
+	margin-top: 10px;
+	padding-bottom: 2%;
+	height: 50px;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+#homeContent fieldset legend {
+	text-align: justify;
+}
+
+#homeContent fieldset {
+	text-align: center;
+/* 	margin: 5%; */
+	margin-left: 11%;
+	width: 30%;
+	float: left;
+}
+
 .campo {
 	clear: both;
 	padding-top: 15px;
@@ -51,19 +81,19 @@ body {
 	position: absolute;
 	width:100%;
 }
+
 .campo label {
 	font-size: 12pt;
 	text-align: right;
 	position: absolute;
 	right: 57%;
 }
+
 .campo input, .campo div, .campo select, .campo button {
 	text-align: left;
 	left: 45%;
 	position: absolute;
 	margin-top: -1px;
-}
-
 }
 
 .campo a {
@@ -90,8 +120,9 @@ body {
 
 #titulo {
 	text-align: center;
-	font-size: 12pt;
+	font-size: 14pt;
 	padding-bottom: 10px;
+	text-transform: uppercase;
 }
 
 #valorFiltro {
@@ -129,7 +160,7 @@ body {
 	border-width: 1 pt;
  	background: #FFFFFF;
  	
- 	max-height: 400;
+ 	max-height: 400px;
 }
 
 #popUp #titulo {
@@ -167,7 +198,6 @@ body {
 	text-decoration: none;
 }
 
-/* 	background-color: #00000; */
 #popUpClose {
 	text-align: right;
 	max-heigth: 40%;
@@ -196,24 +226,21 @@ body {
 }
 
 #conteudoLogin {
-	margin-top: 25%;
-	margin-bottom: 25%;
+	margin-top: 15%;
+	margin-bottom: 15%;
 	margin-left: 20%;
 	margin-right: 20%;
     min-width: 60%;
-    min-height: 95%;
+    height: 45%;
     position: absolute;
-   background-color: #FFFFFF;
+   	background-color: #FFFFFF;
+	border-radius: 5px;
+	padding: 5px;
 }
 
-#formLogin {
-	border-style: solid;
-	border-width: thin;
-	border-radius: 5px;
-	margin-left: 25%;
-	margin-right: 25%;
-	margin-top: 10%;
-	float: right;
+#conteudoLogin div {
+	float: left;
+	max-width: 50%
 }
 
 #recaptcha_widget_div {

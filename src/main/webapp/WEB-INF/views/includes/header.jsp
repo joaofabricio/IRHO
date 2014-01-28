@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Imperium Rerum Humanis Opibus</title>
+	<title>IRHO - Índice de Arquivos físicos da UTFPRCM</title>
 	
 <!-- 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
 	
@@ -79,39 +79,39 @@
 			</ul>
 		</div>
 
-		<div id="toolbar">
-			<a href="${ctx}/" class="button left">
-				<span class="icon icon56" title="Início">Home</span>
-			</a>
+<!-- 		<div id="toolbar"> -->
+<%-- 			<a href="${ctx}/" class="button left"> --%>
+<!-- 				<span class="icon icon56" title="Início">Home</span> -->
+<!-- 			</a> -->
 			
-				<a href="${ctx}/pessoa/cadastro" class="button middle">
-				<span class="icon icon51" title="Cadastro de Pessoas">CadastroPessoa</span>
-			</a>
-			<a href="${ctx}/caixa/cadastroCaixa" class="button middle">
-				<span class="icon icon58" title="Cadastro de Caixa">CadastroCaixa</span>
-			</a>
-			<a href="${ctx}/validade/cadastroValidade" class="button middle">
-				<span class="icon icon43" title="Cadastro de Validade">CadastroValidade</span>
-			</a>
+<%-- 				<a href="${ctx}/pessoa/cadastro" class="button middle"> --%>
+<!-- 				<span class="icon icon51" title="Cadastro de Pessoas">CadastroPessoa</span> -->
+<!-- 			</a> -->
+<%-- 			<a href="${ctx}/caixa/cadastroCaixa" class="button middle"> --%>
+<!-- 				<span class="icon icon58" title="Cadastro de Caixa">CadastroCaixa</span> -->
+<!-- 			</a> -->
+<%-- 			<a href="${ctx}/validade/cadastroValidade" class="button middle"> --%>
+<!-- 				<span class="icon icon43" title="Cadastro de Validade">CadastroValidade</span> -->
+<!-- 			</a> -->
 			
-			<a href="${ctx}/arquivo/buscar" class="button middle">
-				<span class="icon icon52" title="Buscar Arquivo">Buscar Arquivo</span>
-			</a>
+<%-- 			<a href="${ctx}/arquivo/buscar" class="button middle"> --%>
+<!-- 				<span class="icon icon52" title="Buscar Arquivo">Buscar Arquivo</span> -->
+<!-- 			</a> -->
 			
 	
-			<a href="${ctx}/j_spring_security_logout" class="button right">
-				<img src="${ctx}/images/out.ico" />
-			</a>
+<%-- 			<a href="${ctx}/j_spring_security_logout" class="button right"> --%>
+<%-- 				<img src="${ctx}/images/out.ico" /> --%>
+<!-- 			</a> -->
 
-			<a href="${ctx}/problemas" class="button midlle right">
-				<span class="icon icon92" title="Informar problemas">Problemas</span>
-			</a>
+<%-- 			<a href="${ctx}/problemas" class="button midlle right"> --%>
+<!-- 				<span class="icon icon92" title="Informar problemas">Problemas</span> -->
+<!-- 			</a> -->
 
-			<a href="${ctx}/sobre" class="button midlle right">
-				<span class="icon icon33" title="Sobre">Sobre</span>
-			</a>
+<%-- 			<a href="${ctx}/sobre" class="button midlle right"> --%>
+<!-- 				<span class="icon icon33" title="Sobre">Sobre</span> -->
+<!-- 			</a> -->
 
-		</div>
+<!-- 		</div> -->
 		<!-- FIM MENU -->
 		<div id="corpo">
 			<c:if test="${erro != null}">

@@ -6,6 +6,10 @@
 	<div id="titulo">Cadastro de tipo de arquivo</div>
 
 	<div class="campo">
+		<span class="legendaCampo">
+			Digite uma descrição para o tipo
+		</span>
+		<br />
 		<label for="descricao">Descrição*:</label>
 		<input type="text" name="descricao" size="30" value="${tipo.descricao}"
 			   style="${erro!=null? 'border-color: red;' : ''}"/>
