@@ -69,16 +69,23 @@ public class TipoArquivoController {
 								  HttpServletRequest request,
 								  HttpServletResponse response, Long validadeId) throws IOException {
 		
-		if (!StringUtils.hasText(descricao)) {
-			request.setAttribute("erro", "Descrição inválida");
-			return cadastroTipoArquivo(request);
-		}
-		Validade validade= validadeService.find(validadeId);
 		Tipo tipo = new Tipo();
+		Validade validade= validadeService.find(validadeId);
 		tipo.setValidade(validade);
 		tipo.setDescricao(descricao);
-		tipoService.save(tipo);
+		if (!StringUtils.hasText(descricao)) {
+			request.setAttribute("erro", "Descrição inválida");
+			request.setAttribute("tipo", tipo);
+			return cadastroTipoArquivo(request);
+		}
 		
+		if (validade == null) {
+			request.setAttribute("erro", "Selecione uma validade");
+			request.setAttribute("tipo", tipo);
+			return cadastroTipoArquivo(request);
+		}
+		
+		tipoService.save(tipo);
 		
 		response.sendRedirect("cadastradoSucesso?id="+tipo.getId());
 		return null;

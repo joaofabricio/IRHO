@@ -7,16 +7,19 @@
 
 	<div class="campo">
 		<label for="descricao">Descrição*:</label>
-		<input type="text" name="descricao" size="30" />
+		<input type="text" name="descricao" size="30" value="${tipo.descricao}"
+			   style="${erro!=null? 'border-color: red;' : ''}"/>
 	</div>	
 	<br/>
 	
 	<div class="campo">
 		<label for="descricao">Validade*:</label>
 		
-		<select name="validadeId">
+		<select name="validadeId"
+			    style="${erro!=null? 'border-color: red;' : ''}">
+			<option value="-1">--SELECIONE--</option>
 			<c:forEach var="o" items="${result}">
-				<option value="${o.id}">${o.descricao}</option>
+				<option value="${o.id}" ${(tipo != null && tipo.validade.id == o.id)? 'selected=="selected"':''}>${o.descricao}</option>
 			</c:forEach>
 		</select>
 	</div>

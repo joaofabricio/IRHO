@@ -7,7 +7,8 @@
 
 	<div class="campo">
 		<label for="nome">Nome*:</label>
-		<input type="text" name="nome" size="30" />
+		<input type="text" name="nome" size="30" value="${pessoa.nome}"
+			   style="${erro!=null? 'border-color: red;' : ''}" />
 	</div>
 	
 	<br />

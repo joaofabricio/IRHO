@@ -7,14 +7,16 @@
 
 	<div class="campo">
 		<label for="descricao">Descrição*:</label>
-		<input type="text" name="descricao" size="30" />
+		<input type="text" name="descricao" size="30" value="${validade.descricao}"
+			   style="${erro!=null? 'border-color: red;' : ''}" />
 	</div>
 	
 	<br />
 	
 	<div class="campo">
 		<label for="prazo">Prazo (em anos)*:</label>
-		<input type="number" name="prazoEmAnos" value="${validade.prazoEmAnos}" />
+		<input type="number" name="prazoEmAnos" value="${validade.prazoEmAnos}"
+			   style="${erro!=null? 'border-color: red;' : ''}" />
 	</div>
 	
 	<br />

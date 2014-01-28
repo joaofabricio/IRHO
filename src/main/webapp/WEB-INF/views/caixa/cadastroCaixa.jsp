@@ -7,7 +7,8 @@
 
 	<div class="campo">
 		<label for="descricao">Nome da Caixa*:</label>
-		<input type="text" name="descricao" size="30" />
+		<input type="text" name="descricao" size="30" value="${caixa.descricao}"
+			   style="${erro!=null? 'border-color: red;' : ''}" />
 	</div>
 	
 	<br />
