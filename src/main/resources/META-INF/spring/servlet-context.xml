@@ -69,6 +69,8 @@
 						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<sec:intercept-url pattern="/login"
 						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	   <sec:intercept-url pattern="/erro"
+						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<sec:intercept-url pattern="/images/**"
 						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
 <!-- 		<sec:intercept-url pattern="/admin/**" access="ROLE_ADMIN" /> -->
