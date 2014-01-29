@@ -24,9 +24,13 @@ body {
 }
 
 #corpo {
-	margin-top: 15px;
+	margin-top: 25px;
+	padding-top: 15px;
+	border-top-style: solid;
+	border-top-width: 1px;
 	position: static;
 	clear: both;
+	
 }
 
 #msgErro {
@@ -65,8 +69,8 @@ body {
 #homeContent fieldset {
 	text-align: center;
 /* 	margin: 5%; */
-	margin-left: 11%;
-	width: 30%;
+	margin-left: 4%;
+	width: 25%;
 	float: left;
 }
 

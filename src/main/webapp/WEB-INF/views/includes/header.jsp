@@ -6,7 +6,7 @@
 	
 <!-- 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
 	
-	<link rel="shortcut icon" href="<c:url value='/images/icon.png'/>" />
+	<link rel="shortcut icon" href="<c:url value='/images/iRHologin.png'/>" />
 
     <link rel="stylesheet" href="<c:url value='/css/blueprint/screen.css'/>" type="text/css" media="screen, projection">
     <link rel="stylesheet" href="<c:url value='/css/blueprint/print.css'/>"  type="text/css" media="print">
@@ -113,6 +113,7 @@
 
 <!-- 		</div> -->
 		<!-- FIM MENU -->
+
 		<div id="corpo">
 			<c:if test="${erro != null}">
 				<div id="msgErro">
