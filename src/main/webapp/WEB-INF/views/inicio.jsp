@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/includes/header.jsp"%>
 
 <div id="homeContent">
-	<div id="titulo"><h2>Bem-vindo(a) ao i<b>RH</b>o </h2></div>
+	<div id="titulo">${saudacao}</div>
 	
 <%--    	<img src="${ctx}/images/iRHo.png" /> --%>
    	
