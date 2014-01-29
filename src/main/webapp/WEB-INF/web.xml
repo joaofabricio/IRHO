@@ -31,4 +31,12 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	<error-page>
+		<exception-type>java.lang.Exception</exception-type>
+		<location>/erro</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/acessoNegado</location>
+	</error-page>
 </web-app>

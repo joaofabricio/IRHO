@@ -1,7 +1,5 @@
 package br.edu.utfpr.cm.irho.controller;
 
-import java.util.Calendar;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +19,7 @@ public class InicioController {
 		InetOrgPerson principal = (InetOrgPerson) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
 		
-		String nomePessoa = principal.getCn()[0];
+		String nomePessoa = principal.getCn()!= null? principal.getCn()[0] : principal.getUid();
 		
 		req.setAttribute("saudacao", "Olá, "+nomePessoa);
 		
@@ -35,7 +33,6 @@ public class InicioController {
 		
 		Cookie cookie = new Cookie("login_irho", principal.getUsername());
 		res.addCookie(cookie );
-		
 		
 		return "inicio";
 	}

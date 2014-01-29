@@ -42,7 +42,7 @@
 	<div id="conteudoLogin">
 
 		<div>
-			<img src="${ctx}/images/iRHologin.png" alt="utfpr" width="350" height="370" style="max-width: 100%" />
+			<img src="${ctx}/images/iRHologin.png" alt="utfpr" style="max-width: 100%; max-height: 100%;" />
 		</div>
 		<div id="formLogin">
 			<form action="${ctx}/j_spring_security_check" method="post">

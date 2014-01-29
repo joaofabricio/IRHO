@@ -10,4 +10,9 @@ public class ErroController {
 	public String erro() {
 		return "Erro";
 	}
+
+	@RequestMapping(value = "acessoNegado")
+	public String acessoNegado() {
+		return "login/acessoNegado";
+	}
 }
