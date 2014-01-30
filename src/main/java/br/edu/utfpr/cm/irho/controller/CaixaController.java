@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.utfpr.cm.irho.model.Caixa;
-import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.service.CaixaService;
 
 @Controller
@@ -38,16 +37,15 @@ public class CaixaController {
 		request.setAttribute("ctx", ctx);
 		return "ExcluirConfirmacao";
 	}
+
 	@RequestMapping(value="caixa/ExcluirCaixa")
-	public String excluirDelete(Long id, HttpServletRequest request){
+	public String excluir(Long id, HttpServletRequest request){
 		Caixa caixa = caixaService.find(id);
 		request.setAttribute("descricao", caixa.getDescricao());
 		request.setAttribute("entidade", "caixa");
 		caixaService.delete(caixa);
 		return "ExcluidoSucesso";
 	}
-	
-	 
 	
 	@RequestMapping(value = "caixa/cadastroCaixa", method = RequestMethod.GET)
 	public String cadastroCaixa() {

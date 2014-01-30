@@ -18,10 +18,9 @@ public class InicioController {
 		
 		InetOrgPerson principal = (InetOrgPerson) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
-		
 		String nomePessoa = principal.getCn()!= null? principal.getCn()[0] : principal.getUid();
 		
-		req.setAttribute("saudacao", "Olá, "+nomePessoa);
+		req.setAttribute("saudacao", "Bem-vindo(a), "+nomePessoa);
 		
 		Cookie[] cookies = req.getCookies();
 		for (Cookie cookie : cookies) {

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.utfpr.cm.irho.model.Tipo;
 import br.edu.utfpr.cm.irho.service.TipoService;
-import br.edu.utfpr.cm.irho.service.TipoService;
 import br.edu.utfpr.cm.libutfcm.dao.Criterion;
 import br.edu.utfpr.cm.libutfcm.dao.Order;
 
@@ -37,6 +36,8 @@ public class BuscaTipoArquivoController {
 				throws IOException {
 
 			Criterion criterion = Criterion.like("descricao",descricao);
+
+			ordem = ordem!=null? ordem:"1";
 
 			Order o = Order.ascending(ordem);
 

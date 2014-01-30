@@ -12,10 +12,9 @@
 		document.getElementById("caixaId").value = id;
 		document.getElementById("caixaDescricao").value=nome;
 	}
-
 </script>
 
-<form action="${ctx}/arquivo/cadastroSubmit" method="post">
+<form action="${ctx}/arquivo/cadastroSubmit" method="post" onload="dataAtual()">
 
 	<div id="titulo"> Cadastro de Arquivos</div>
 	<br/>
@@ -50,7 +49,7 @@
 		<input type="text"
 			   name="dataArquivo" 
 			   id="dataArquivo" 
-			   value="${arquivo!=null?arquivo.getDataArquivoFormatada():'' }"
+			   value="${arquivo!=null?arquivo.getDataArquivoFormatada():''}"
 			   style="${erro!=null? 'border-color: red;' : ''}" 
 			   size="10"/>
 	</div>

@@ -13,10 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.edu.utfpr.cm.irho.model.Tipo;
 import br.edu.utfpr.cm.irho.model.Validade;
-import br.edu.utfpr.cm.irho.service.TipoService;
-import br.edu.utfpr.cm.irho.service.TipoService;
 import br.edu.utfpr.cm.irho.service.ValidadeService;
 import br.edu.utfpr.cm.libutfcm.dao.Criterion;
 import br.edu.utfpr.cm.libutfcm.dao.Order;
@@ -41,6 +38,8 @@ public class BuscaValidadeController {
 				throws IOException {
 
 			Criterion criterion = Criterion.like("descricao",descricao);
+
+			ordem = ordem!=null? ordem:"1";
 
 			Order or = Order.ascending(ordem);
 

@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>IRHO - Índice de Arquivos físicos da UTFPRCM</title>
-<link rel="icon" href="/favicon.ico" type="image/iRHologin.ico" />
+<link rel="icon" href="/favicon.ico" type="image/icon.ico" />
 
 <!-- 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" /> -->
 
@@ -36,7 +36,7 @@
 	<div id="conteudoLogin">
 
 		<div>
-			<img src="${ctx}/images/iRHologin.png" alt="utfpr" style="max-width: 100%; max-height: 100%;" />
+			<img src="${ctx}/images/login.png" alt="utfpr" style="max-height: 100%;height: 450px; width: 350px; max-width: 100%;" />
 		</div>
 		<div id="formLogin">
 			<span style="width: 50%">

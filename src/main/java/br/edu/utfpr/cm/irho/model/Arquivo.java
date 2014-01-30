@@ -24,7 +24,7 @@ public class Arquivo extends GenericModel {
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date dataArquivo;
+	private Date dataArquivo = new Date();
 	
 	@ManyToOne
 	@JoinColumn(name="Pessoa_id")

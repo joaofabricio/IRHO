@@ -63,21 +63,26 @@
 	<sec:http auto-config="true" authentication-manager-ref="ldapAuthenticator" >
 		<sec:form-login login-page="/login"
 						authentication-failure-url="/login?error=1" />
-		<sec:intercept-url pattern="/css/**"
-						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<sec:intercept-url pattern="/js/**"
-						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<sec:intercept-url pattern="/login"
-						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
-	   <sec:intercept-url pattern="/erro"
-						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<sec:intercept-url pattern="/images/**"
-						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
-		<sec:intercept-url pattern="/acessoNegado"
-						   access="IS_AUTHENTICATED_ANONYMOUSLY" />
-<!-- 		<sec:intercept-url pattern="/admin/**" access="ROLE_ADMIN" /> -->
-		<sec:intercept-url pattern="/**" access="ROLE_USER" />
+
+	<!-- PÁGINAS QUE NÃO PRECISAM DE AUTENTICAÇÃO -->
+		<sec:intercept-url pattern="/css/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<sec:intercept-url pattern="/js/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<sec:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+	   <sec:intercept-url pattern="/erro" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<sec:intercept-url pattern="/images/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<sec:intercept-url pattern="/acessoNegado" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+
+	<!-- CONTROLE DE ACESSO ÀS PÁGINAS QUE PRECISAM DE AUTENTICAÇÃO -->
+	<!--
+		ROLE_USER: Acesso somente a buscas e telas de apresentação
+		ROLE_INSERT: Acesso a cadastros + acessos de ROLE_USER
+	 -->
+		<sec:intercept-url pattern="/*" access="ROLE_USER, ROLE_INSERT" />
+		<sec:intercept-url pattern="/*/buscar*" access="ROLE_USER, ROLE_INSERT" />
+		<sec:intercept-url pattern="/*/buscado*" access="ROLE_USER, ROLE_INSERT" />
+		<sec:intercept-url pattern="/sobre" access="ROLE_USER, ROLE_INSERT" />
 		
+		<sec:intercept-url pattern="/**" access="ROLE_INSERT" />
 		
     	<sec:custom-filter ref="captchaCaptureFilter" before="FORM_LOGIN_FILTER" />
  		<sec:custom-filter ref="captchaVerifierFilter" after="FORM_LOGIN_FILTER"/>
@@ -94,6 +99,6 @@
 			user-search-base="ou=Todos" />
 	</sec:authentication-manager>
 
-	<bean id="userMapper" class="br.edu.utfpr.cm.irho.controller.UserMapper"  />
+	<bean id="userMapper" class="br.edu.utfpr.cm.irho.mapper.UserMapper"  />
 
 </beans>

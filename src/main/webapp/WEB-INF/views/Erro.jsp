@@ -7,7 +7,7 @@
 <div style="text-align: center;">
 	</br>
 	</br>
-	<img src="${ctx}/images/iRHologin.png" alt="utfpr" width="350"height="370" /> 
+	<img src="${ctx}/images/iRHo.png" alt="utfpr" width="350"height="370" /> 
 	<h1>Desculpe, Ocorreu um erro grave!</h1>
 	</br>
 	<h5>Entre em contato com a COGETI para maiores infomações pelo e-mail cogeti-cm@utfpr.edu.br ou pelo telefone (44) 3518 1422 </h5>

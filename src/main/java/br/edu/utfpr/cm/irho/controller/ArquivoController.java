@@ -1,16 +1,19 @@
 package br.edu.utfpr.cm.irho.controller;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Collection;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.utfpr.cm.irho.model.Arquivo;
 import br.edu.utfpr.cm.irho.model.Caixa;
@@ -51,11 +54,15 @@ public class ArquivoController {
 		Collection<Pessoa> pessoas = pessoaService.findByCriterion(Order.ascending("nome"));
 		request.setAttribute("pessoas", pessoas);
 		
+		request.setAttribute("arquivo", new Arquivo());
+		
 		return "arquivo/cadastroArquivo";
 	}
 	
 	@RequestMapping(value = "arquivo/editar", method = RequestMethod.GET)
-	public String editar(Long id, HttpServletRequest request) {
+	public String editar(Long id, 
+						 @RequestParam(required=false) String origem, 
+						 HttpServletRequest request) {
 		
 		Collection<Tipo> tipos = tipoService.findByCriterion(Order.ascending("descricao"));
 		request.setAttribute("tipos", tipos);
@@ -65,10 +72,16 @@ public class ArquivoController {
 		
 		Collection<Pessoa> pessoas = pessoaService.findByCriterion(Order.ascending("nome"));
 		request.setAttribute("pessoas", pessoas);
+
+		if (request.getAttribute("arquivo") == null) {
+			request.setAttribute("arquivo", arquivoService.find(id));
+		}
 		
-		request.setAttribute("arquivo", arquivoService.find(id));
-		
-		return "arquivo/editar";
+		if (origem != null) {
+			request.setAttribute("msg", "O Arquivo foi gravado com sucesso");
+		}
+
+		return "arquivo/cadastroArquivo";
 	}
 
 	@RequestMapping(value = "arquivo/cadastroSubmit", method = RequestMethod.POST)
@@ -80,10 +93,10 @@ public class ArquivoController {
 							   	 String assunto,
 							   	 String area,
 							   	 String observacao,
-							   	 HttpServletRequest request) {
+							   	 HttpServletRequest request,
+							   	 HttpServletResponse response) throws IOException {
 		
-		Arquivo arquivo = new Arquivo();
-		arquivo.setId(id);
+		Arquivo arquivo = id == null? new Arquivo() : arquivoService.find(id);
 		arquivo.setArea(area);
 		arquivo.setObservacao(observacao);
 		
@@ -134,12 +147,15 @@ public class ArquivoController {
  		if(StringUtils.hasText(erro)){
  			request.setAttribute("erro", erro);
  			request.setAttribute("arquivo", arquivo);
- 			return cadastroArquivo(request);
+ 			
+			return editar(id, null, request);
  		}
  		
  		arquivoService.save(arquivo);
  		
-		return "arquivo/cadastroSucessoArquivo";
+ 		response.sendRedirect("editar?origem=cad&id="+arquivo.getId());
+ 		return null;
+//		return "arquivo/cadastroSucessoArquivo";
 		
 		
 	}

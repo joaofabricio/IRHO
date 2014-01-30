@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.edu.utfpr.cm.irho.model.Caixa;
 import br.edu.utfpr.cm.irho.service.CaixaService;
-import br.edu.utfpr.cm.irho.service.CaixaService;
 import br.edu.utfpr.cm.libutfcm.dao.Criterion;
 import br.edu.utfpr.cm.libutfcm.dao.Order;
 @Controller
@@ -36,6 +35,8 @@ public class BuscaCaixaController {
 
 			Criterion criterion = Criterion.like("descricao",descricao);
 
+			ordem = ordem!=null? ordem:"1";
+			
 			Order o = Order.ascending(ordem);
 
 			Collection<Caixa> retorno = caixaService.findByCriterion(o, criterion);

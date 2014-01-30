@@ -1,4 +1,4 @@
-package br.edu.utfpr.cm.irho.controller;
+package br.edu.utfpr.cm.irho.mapper;
 
 import java.util.Collection;
 
@@ -29,7 +29,7 @@ public class UserMapper extends LdapUserDetailsMapper {
 		usuario = usuarioService.findUniqueByExample(usuario);
 		
 		if (usuario != null) {
-			essence.addAuthority(new SimpleGrantedAuthority("ROLE_USER"));
+			essence.addAuthority(new SimpleGrantedAuthority(usuario.getAcesso().toString()));
 		}
 		
 		return essence.createUserDetails();

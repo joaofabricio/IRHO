@@ -3,6 +3,8 @@ package br.edu.utfpr.cm.irho.model;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import br.edu.utfpr.cm.libutfcm.model.Email;
 import br.edu.utfpr.cm.libutfcm.model.GenericModel;
@@ -18,6 +20,10 @@ public class Usuario extends GenericModel {
 
 	@Embedded
 	private Email email;
+
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Acesso acesso;
 
 	public String getNome() {
 		return nome;
@@ -41,6 +47,14 @@ public class Usuario extends GenericModel {
 
 	public void setEmail(Email email) {
 		this.email = email;
+	}
+
+	public Acesso getAcesso() {
+		return acesso;
+	}
+
+	public void setAcesso(Acesso acesso) {
+		this.acesso = acesso;
 	}
 
 }

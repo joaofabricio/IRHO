@@ -6,7 +6,7 @@
 	</br>
 	<h1 align="center">Desenvolvido pela COGETI CM</h1>
 	</br>
-	<img src="${ctx}/images/iRHologin.png" align="left" alt="lgoIRHO" width="340"height="370;" /> 
+	<img src="${ctx}/images/login.png" align="left" alt="lgoIRHO" width="340"height="370;" /> 
 	<p align="justify"/>
 	</br></br></br></br></br></br></br>
 	<b>              Criação e desenvolvimento:</b> <br/>
