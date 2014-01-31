@@ -7,16 +7,20 @@
 
 	<input type="hidden" value="${caixa.id}" name="id" />
 	<div class="campo">
-		<label for="nome">Nova descricao da caixa:</label>
-		<input type="text" name="descricao" size="30" value="${caixa.descricao}" />
+		<span class="legendaCampo">
+			Digite uma descrição para identificar a caixa
+		</span>
+		<br />
+		<label for="descricao">Descrição*:</label>
+		<input type="text" name="descricao" size="30" value="${caixa.descricao}"
+			   style="${erro!=null? 'border-color: red;' : ''}" />
 	</div>
 	
 	<br />
 	
 	<div class="botoes">
-		<input type="submit" value="Cadastrar"/>
+		<input type="submit" value="Gravar"/>
 	</div>
-
 </form>
 
 <%@ include file="/WEB-INF/views/includes/footer.jsp"%>

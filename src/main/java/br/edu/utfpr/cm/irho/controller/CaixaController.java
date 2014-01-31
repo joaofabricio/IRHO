@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.utfpr.cm.irho.model.Caixa;
 import br.edu.utfpr.cm.irho.service.CaixaService;
@@ -21,9 +22,16 @@ public class CaixaController {
 	private CaixaService caixaService;
 	
 	@RequestMapping(value = "caixa/editarCaixa", method =  RequestMethod.GET)
-	public String editarCaixa(Long id, HttpServletRequest request) {
-		Caixa p = caixaService.find(id);
-		request.setAttribute("caixa", p);
+	public String editarCaixa(@RequestParam(required=false)String origem, 
+							  Long id, HttpServletRequest request) {
+		if (origem != null) {
+			request.setAttribute("msg", "A caixa foi gravada com sucesso");
+		}
+		
+		if (request.getAttribute("caixa")== null) {
+			Caixa p = caixaService.find(id);
+			request.setAttribute("caixa", p);
+		}
 		
 		return "caixa/editarCaixa";
 	}
@@ -64,25 +72,27 @@ public class CaixaController {
 		caixa.setDescricao(descricao);
 		caixaService.save(caixa);
 
-		response.sendRedirect("cadastroSucessoCaixa?id="+caixa.getId());
+		response.sendRedirect("editarCaixa?origem=cad&id="+caixa.getId());
 		return null;
 	}
 	@RequestMapping(value = "caixa/editado", method = RequestMethod.POST)
-	public String cadastrarCaixa(String descricao, Long id,
+	public String editadoCaixa(String descricao, Long id,
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
 		
-		if (!StringUtils.hasText(descricao)) {
-			request.setAttribute("erro", "Nome invalido.");
-			return cadastroCaixa();
-		}
-
 		Caixa caixa = new Caixa();
 		caixa.setId(id);
 		caixa.setDescricao(descricao);
+
+		if (!StringUtils.hasText(descricao)) {
+			request.setAttribute("erro", "Nome inválido.");
+			request.setAttribute("caixa", caixa);
+			return editarCaixa(null, id, request);
+		}
+
 		caixaService.save(caixa );
 		
-		response.sendRedirect("cadastroSucessoCaixa?id="+caixa.getId());
+		response.sendRedirect("editarCaixa?origem=cad&id="+caixa.getId());
 		return null;
 	}
 	@RequestMapping(value = "caixa/cadastroSucessoCaixa", method = RequestMethod.GET)

@@ -35,7 +35,7 @@ public class PessoaBuscaController {
 
 		Criterion criterion = Criterion.like("nome", nome);
 
-		ordem = StringUtils.hasText(ordem)?ordem:"1";
+		ordem = StringUtils.hasText(ordem)?ordem:"nome";
 		Order o = Order.ascending(ordem);
 
 		Collection<Pessoa> retorno = pessoaService.findByCriterion(o, criterion);

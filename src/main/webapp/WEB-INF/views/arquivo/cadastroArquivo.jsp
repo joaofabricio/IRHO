@@ -144,7 +144,7 @@
 	<br />
 	
 	<div class="botoes">
-		<input type="submit" value="Cadastro"/>
+		<input type="submit" value="Gravar"/>
 	</div>
 
 </form>

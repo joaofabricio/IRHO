@@ -78,6 +78,7 @@ body {
 	clear: both;
 	padding-top: 15px;
 }
+
 .legendaCampo {
 	font-weight: normal;
 	font-size: 7pt;
@@ -100,13 +101,13 @@ body {
 	margin-top: -1px;
 }
 
-.campo a {
-	font-size: 7pt;
-	float: left;
-	position: absolute;
-	padding-top: 10px;
-	left: 45%
-}
+/* .campo a { */
+/* 	font-size: 7pt; */
+/* 	float: left; */
+/* 	position: absolute; */
+/* 	padding-top: 10px; */
+/* 	left: 45% */
+/* } */
 .campo textarea {
 	text-align: left;
 	left: 45%;
@@ -235,7 +236,7 @@ body {
 	margin-left: 20%;
 	margin-right: 20%;
     min-width: 60%;
-    height: 45%;
+    min-height: 45%;
     position: absolute;
    	background-color: #FFFFFF;
 	border-radius: 5px;

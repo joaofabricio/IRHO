@@ -126,18 +126,13 @@ public class TipoArquivoController {
 				
 			}
 			
-		
 		request.setAttribute("descricao", tipo.getDescricao());
 		
 		return "tipoArquivo/cadastradoSucesso";
 	}
 	
-	
-
 	public void setTipoService(TipoService service) {
 		this.tipoService = service;
-		
-		
 	}
 
 	public void setValidadeService(ValidadeService service) {

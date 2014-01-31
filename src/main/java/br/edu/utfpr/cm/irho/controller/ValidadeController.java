@@ -58,7 +58,7 @@ public class ValidadeController {
 		Validade validade = new Validade();
 		
 		if (!StringUtils.hasText(descricao)) {
-			request.setAttribute("erro", "Descrição inválida.");
+			request.setAttribute("erro", "Descrição inválida");
 			request.setAttribute("validade", validade);
 			return cadastroValidade();
 		}
@@ -66,7 +66,7 @@ public class ValidadeController {
 		validade.setDescricao(descricao);
 		
 		if (prazoEmAnos == null || prazoEmAnos < 0) {
-			request.setAttribute("erro", "Prazo inválido.");
+			request.setAttribute("erro", "Prazo inválido");
 			request.setAttribute("validade", validade);
 			return cadastroValidade();
 		}

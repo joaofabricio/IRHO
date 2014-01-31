@@ -6,14 +6,14 @@
 
 	<div class="campo">
 		<label for="pessoa">Pessoa:</label>
-		<input type="text" name="pessoa" size="30" />
+		<input type="text" name="pessoa" size="30" value="${pessoa}" />
 	</div>
 	<br />
 
 
 	<div class="campo">
 		<label for="assunto">Assunto:</label>
-		<input type="text" name="assunto" size="30" />
+		<input type="text" name="assunto" size="30" value="${assunto}" />
 	</div>
 	<br />
 
@@ -23,7 +23,7 @@
 		<select name="tipo">
 			<option value="-1">NENHUM</option>
 			<c:forEach var="o" items="${tipos}">
-				<option value="${o.id}">${o.descricao}</option>
+				<option value="${o.id}" ${o.id==tipo? 'selected="selected"':''}>${o.descricao}</option>
 			</c:forEach>
 		</select>
 	</div>
@@ -34,7 +34,7 @@
 		<select name="caixa">
 			<option value="-1">NENHUMA</option>
 			<c:forEach var="o" items="${caixas}">
-				<option value="${o.id}">${o.descricao}</option>
+				<option value="${o.id}" ${o.id==caixa? 'selected="selected"':''}>${o.descricao}</option>
 			</c:forEach>
 		</select>
 	</div>

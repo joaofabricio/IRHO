@@ -12,13 +12,13 @@
 		<br />
 		<label for="descricao">Descrição*:</label>
 		<input type="text" name="descricao" size="30" value="${caixa.descricao}"
-			   style="${erro!=null? 'border-color: red;' : ''}" />
+			   style="${erro!=null? 'border-color: red;' : ''}" autofocus="autofocus" />
 	</div>
 	
 	<br />
 	
 	<div class="botoes">
-		<input type="submit" value="Cadastrar"/>
+		<input type="submit" value="Gravar"/>
 	</div>
 
 </form>

@@ -37,7 +37,7 @@ public class BuscaTipoArquivoController {
 
 			Criterion criterion = Criterion.like("descricao",descricao);
 
-			ordem = ordem!=null? ordem:"1";
+			ordem = ordem!=null? ordem: "descricao";
 
 			Order o = Order.ascending(ordem);
 

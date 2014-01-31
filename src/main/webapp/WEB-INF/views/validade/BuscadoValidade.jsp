@@ -26,15 +26,15 @@
 
 	<table>
 		<tr>
-			<th><a href="javascript: ordenar('id')">Id</a></th>
-			<th><a href="javascript: ordenar('nome')">Nome</a></th>
+			<th><a href="javascript: ordenar('descricao')">Descrição</a></th>
+			<th><a href="javascript: ordenar('prazoEmAnos')">Prazo (anos)</a></th>
 			<th style="text-align: center;">editar</th>
 						<th style="text-align: center;">excluir</th>
 		</tr>
 		<c:forEach var="o" items="${result}">
 			<tr>
-				<td>${o.id}</td>
 				<td>${o.descricao}</td>
+				<td>${o.prazoEmAnos}</td>
 				<td style="text-align: center;">
 					<a href="${ctx}/validade/editarValidade?id=${o.id}">
 						<img src="${ctx}/images/edit.png" width="16" height="16" alt="editar" title="editar" />
@@ -48,9 +48,5 @@
 			</tr>
 		</c:forEach>
 	</table>
- <br />
-	<div class="botoes">
-		<button onclick="location.href='${ctx}/validade/buscar'"> Realizar nova busca</button>
-	</div>
 	
 	<%@ include file="/WEB-INF/views/includes/footer.jsp"%>

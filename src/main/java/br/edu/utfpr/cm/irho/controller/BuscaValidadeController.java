@@ -27,19 +27,19 @@ public class BuscaValidadeController {
 		
 	
 		@RequestMapping(value = "validade/buscar", method = RequestMethod.GET)
-		public String cadastroTipoArquivo() {
+		public String buscar() {
 			return "validade/BuscarValidade";
 		}
 
 
 		@RequestMapping(value = "validade/buscar", method = RequestMethod.POST)
-		public String buscarValidade(String descricao, String ordem,
+		public String buscado(String descricao, String ordem,
 				HttpServletRequest request, HttpServletResponse response)
 				throws IOException {
 
 			Criterion criterion = Criterion.like("descricao",descricao);
 
-			ordem = ordem!=null? ordem:"1";
+			ordem = ordem!=null? ordem: "descricao";
 
 			Order or = Order.ascending(ordem);
 
