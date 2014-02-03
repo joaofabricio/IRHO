@@ -5,6 +5,7 @@
 
 	<div id="titulo">Cadastro de Pessoas</div>
 
+	<input type="hidden" value="${pessoa.id}" name="id" />
 	<div class="campo">
 		<span class="legendaCampo">
 			Digite o nome da pessoa

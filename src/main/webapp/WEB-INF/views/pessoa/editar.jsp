@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <%@ include file="/WEB-INF/views/includes/header.jsp"%>
 
-<form action="${ctx}/pessoa/editado" method="post">
+<form action="${ctx}/pessoa/cadastrar" method="post">
 
 	<div id="titulo">Editar a pessoa: <i> ${pessoa.nome} </i></div>
 

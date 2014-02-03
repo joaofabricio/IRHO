@@ -25,7 +25,7 @@ public class PessoaController {
 		Pessoa p = pessoaService.find(id);
 		request.setAttribute("pessoa", p);
 		
-		return "pessoa/editar";
+		return "pessoa/cadastro";
 	}
 	
 	@RequestMapping(value="pessoa/excluir")
@@ -48,44 +48,27 @@ public class PessoaController {
 	}
 	
 	@RequestMapping(value = "pessoa/cadastro", method =  RequestMethod.GET)
-	public String cadastroPessoa() {
+	public String cadastroPessoa(HttpServletRequest request) {
+		request.setAttribute("pessoa", new Pessoa());
 		return "pessoa/cadastro";
 	}
 	
 	@RequestMapping(value = "pessoa/cadastrar", method = RequestMethod.POST)
-	public String cadastrarPessoa(String nome, 
+	public String editadoPessoa(String nome, Long id,
 								  HttpServletRequest request,
 								  HttpServletResponse response) throws IOException {
-		
-		if (!StringUtils.hasText(nome)) {
-			request.setAttribute("erro", "Nome invalido.");
-			return "pessoa/cadastro";
-		}
-		
-		Pessoa pessoa = new Pessoa();
-		pessoa.setNome(nome);
-		pessoaService.save(pessoa );
-		
-		response.sendRedirect("cadastradoSucesso?id="+pessoa.getId());
-		return null;
-	}
-	
-	@RequestMapping(value = "pessoa/editado", method = RequestMethod.POST)
-	public String cadastrarPessoa(String nome, Long id,
-								  HttpServletRequest request,
-								  HttpServletResponse response) throws IOException {
-		
-		if (!StringUtils.hasText(nome)) {
-			request.setAttribute("erro", "Nome invalido.");
-			return "pessoa/cadastro";
-		}
 		
 		Pessoa pessoa = new Pessoa();
 		pessoa.setId(id);
 		pessoa.setNome(nome);
+		if (!StringUtils.hasText(nome)) {
+			request.setAttribute("erro", "Nome inválido");
+			return "pessoa/cadastro";
+		}
+		
 		pessoaService.save(pessoa );
 		
-		response.sendRedirect("cadastradoSucesso?id="+pessoa.getId());
+		response.sendRedirect("origem=cad&?id="+pessoa.getId());
 		return null;
 	}
 		
