@@ -5,55 +5,51 @@
 
 <form>
 
-	<div id="titulo">Editando Arquivo</div>
+	<div id="titulo">Arquivo</div>
 	
-	<input type="hidden" name="id" value="${arquivo.id}" id="id" />
+	<div class="campo">
+		<label for="descricao">Tipo:</label>
+		<textarea class="input_view" readonly="readonly">${arquivo.tipo.descricao}</textarea>
+	</div>
 	<br/>
 	<div class="campo">
-		<label for="nome">Pessoa:</label>
-		
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.pessoa.nome}" />
+		<label for="dataArquivo"> Data:</label>
+		<textarea class="input_view" readonly="readonly">${arquivo.dataArquivoFormatada}</textarea>
 	</div>
-	
 	<br/>
+	<div class="campo">
+		<label for="assunto">Assunto:</label>
+		<textarea class="input_view" readonly="readonly">${arquivo.assunto}</textarea>
+	</div>
+	<br />
 	<div class="campo">
 		<label for="area">Área:</label>
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.area}" />
+		<textarea class="input_view" readonly="readonly">${arquivo.area}</textarea>
 	</div>	
-	<br/>
+	
+	<br />
 	<div class="campo">
-		<label for="assunto">Assunto*:</label>
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.assunto}" />
+		<label for="nome">Pessoa:</label>
+		<textarea class="input_view" readonly="readonly">${arquivo.pessoa.nome}</textarea>
+<%-- 		<input type="text" class="input_view" readonly="readonly" value="${arquivo.pessoa.nome}" /> --%>
 	</div>
-	
-	<br/>
-	
-	<div class="campo">
-		<label for="descricao">Tipo*:</label>
-		
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.tipo!=null? arquivo.tipo.descricao:'[nenhum]'}" />
-	</div>
-	
-	<br/>
+	<br />
+	<br />
 	
 	<div class="campo">
 		<label for="descricao"> Caixa:</label>
-		
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.caixa!=null? arquivo.caixa.descricao:'[nenhum]'}" />
+		<textarea class="input_view" readonly="readonly">${arquivo.caixa.descricao}</textarea>
 	</div>
 	<br/>
-	<div class="campo">
-		<label for="dataArquivo"> Data*:</label>
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.getDataArquivoFormatada()}" />
-	</div>
-	
 	<br />
 	
 	<div class="campo">
 		<label for="observacao"> Observação:</label>
-		<input type="text" class="input_view" readonly="readonly" value="${arquivo.observacao}" />
+		<textarea class="input_view" readonly="readonly">${arquivo.observacao}</textarea>
 	</div>
 	
+	<br />
+	<br />
 	<br />
 	<br />
 	<br />

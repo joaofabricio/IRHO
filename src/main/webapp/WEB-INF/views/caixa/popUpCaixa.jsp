@@ -1,5 +1,8 @@
 <%@ include file="/WEB-INF/views/includes/taglibs.jsp"%>
 <div id="titulo">Selecione uma caixa</div>
+<label>pesquisar por descrição: </label>
+<input type="text" autofocus="autofocus" id="filtroDescCaixa" value="${descricao}" />
+<button onclick="showPopup('${ctx}/caixa/popup?descricao='+document.getElementById('filtroDescCaixa').value);">ok</button>
 <table>
 	<tr>
 		<th><a href="javascript: ordenar('id')">Id</a></th>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.edu.utfpr.cm.irho.model.Pessoa;
 import br.edu.utfpr.cm.irho.service.PessoaService;
@@ -21,9 +22,16 @@ public class PessoaController {
 	private PessoaService pessoaService;
 	
 	@RequestMapping(value = "pessoa/editar", method =  RequestMethod.GET)
-	public String editarPessoa(Long id, HttpServletRequest request) {
+	public String editarPessoa(Long id,
+							   @RequestParam(required = false) String origem,
+							   HttpServletRequest request) {
+		
 		Pessoa p = pessoaService.find(id);
 		request.setAttribute("pessoa", p);
+		
+		if (origem != null) {
+			request.setAttribute("msg", "Pessoa gravada com sucesso");
+		}
 		
 		return "pessoa/cadastro";
 	}
@@ -66,9 +74,9 @@ public class PessoaController {
 			return "pessoa/cadastro";
 		}
 		
-		pessoaService.save(pessoa );
+		pessoaService.save(pessoa);
 		
-		response.sendRedirect("origem=cad&?id="+pessoa.getId());
+		response.sendRedirect("editar?origem=cad&id="+pessoa.getId());
 		return null;
 	}
 		

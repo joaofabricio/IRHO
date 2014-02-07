@@ -19,7 +19,7 @@
 	<br />
 	
 	<div class="botoes">
-		<input type="submit" value="Cadastrar"/>
+		<input type="submit" value="Gravar"/>
 	</div>
 
 </form>

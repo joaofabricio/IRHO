@@ -29,7 +29,7 @@ public class PessoaControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String nome = "Marcus";
-		String telaRetorno = pessoaController.cadastrarPessoa(nome, request, response);
+		String telaRetorno = pessoaController.editadoPessoa(nome, null, request, response);
 		assertEquals(null, telaRetorno);
 	}
 	
@@ -38,7 +38,7 @@ public class PessoaControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String nome = null;
-		String telaRetorno = pessoaController.cadastrarPessoa(nome, request, response);
+		String telaRetorno = pessoaController.editadoPessoa(nome, null, request, response);
 		assertEquals("pessoa/cadastro", telaRetorno);
 	}
 	
@@ -47,7 +47,7 @@ public class PessoaControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String nome = "";
-		String telaRetorno = pessoaController.cadastrarPessoa(nome, request, response);
+		String telaRetorno = pessoaController.editadoPessoa(nome, null, request, response);
 		assertEquals("pessoa/cadastro", telaRetorno);
 	}
 	
@@ -56,7 +56,7 @@ public class PessoaControllerTest {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response= EasyMock.createMock(HttpServletResponse.class);
 		String nome = "            ";
-		String telaRetorno = pessoaController.cadastrarPessoa(nome, request, response);
+		String telaRetorno = pessoaController.editadoPessoa(nome, null, request, response);
 		assertEquals("pessoa/cadastro", telaRetorno);
 	}
 

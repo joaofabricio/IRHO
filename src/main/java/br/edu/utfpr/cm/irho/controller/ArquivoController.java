@@ -96,7 +96,8 @@ public class ArquivoController {
 							   	 HttpServletRequest request,
 							   	 HttpServletResponse response) throws IOException {
 		
-		Arquivo arquivo = id == null? new Arquivo() : arquivoService.find(id);
+		Arquivo arquivo = new Arquivo();
+		arquivo.setId(id);
 		arquivo.setArea(area);
 		arquivo.setObservacao(observacao);
 		

@@ -19,6 +19,8 @@
 	<div id="titulo"> Cadastro de Arquivos</div>
 	<br/>
 	
+	<input type="hidden" name="id" value="${arquivo.id}" />
+	
 	<div class="campo">
 		<span class="legendaCampo">
 			Escolha um tipo para o Arquivo

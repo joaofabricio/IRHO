@@ -34,12 +34,12 @@ public class TipoArquivoControllerTest {
 		ValidadeService vService = EasyMock.createMock(ValidadeService.class);
 		cadastrotipoArquivoController.setValidadeService(vService);
 		String descricao = null;
-		String ret = cadastrotipoArquivoController.cadastrarTipo(descricao,1l,
-				request, response);
+		EasyMock.expect(vService.find(1l)).andReturn(new Validade()).once();
+		String ret = cadastrotipoArquivoController.cadastrarTipo(descricao,	request, response, 1l);
 		assertEquals("tipoArquivo/cadastro", ret);
 	}
 
-//	@Test
+	@Test
 	public void cadastroPessoaSucesso() throws IOException {
 		HttpServletRequest request = EasyMock.createMock(HttpServletRequest.class);
 		HttpServletResponse response = EasyMock
@@ -52,7 +52,7 @@ public class TipoArquivoControllerTest {
 		cadastrotipoArquivoController.setValidadeService(vService);
 		cadastrotipoArquivoController.setTipoService(service);
 		String descricao = "TESTE";
-		String ret = cadastrotipoArquivoController.cadastrarTipo(descricao,1l,request, response);
+		String ret = cadastrotipoArquivoController.cadastrarTipo(descricao,request, response,1l);
 		assertEquals(null, ret);
 	}
 

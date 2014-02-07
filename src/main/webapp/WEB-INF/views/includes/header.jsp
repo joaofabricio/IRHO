@@ -70,14 +70,14 @@
 						</li>
 					</ul>
 				</li>
-				<li>
-					<a href="#">IMPORTAR</a>
-					<ul>
-						<li>
-							<a href="${ctx}/importar">Arquivo</a>
-						</li>
-					</ul>
-				</li>
+<!-- 				<li> -->
+<!-- 					<a href="#">IMPORTAR</a> -->
+<!-- 					<ul> -->
+<!-- 						<li> -->
+<%-- 							<a href="${ctx}/importar">Arquivo</a> --%>
+<!-- 						</li> -->
+<!-- 					</ul> -->
+<!-- 				</li> -->
  				<li style="float: right">   
  					<a href="${ctx}/j_spring_security_logout">SAIR</a>
  				</li>

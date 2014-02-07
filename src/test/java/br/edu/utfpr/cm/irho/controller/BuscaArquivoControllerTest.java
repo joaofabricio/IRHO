@@ -16,7 +16,7 @@ import br.edu.utfpr.cm.libutfcm.dao.Criterion;
 
 public class BuscaArquivoControllerTest {
 
-//	@Test
+	@Test
 	public void testeCadastroArquivo() throws IOException {
 		HttpServletRequest request = EasyMock.createStrictMock(HttpServletRequest.class);
 		
@@ -43,7 +43,7 @@ public class BuscaArquivoControllerTest {
 		assertEquals("arquivo/buscar", telaRetorno);
 	}
 	
-//	@Test
+	@Test
 	public void buscaSubmitTudoNull() throws IOException {
 		
 		BuscaArquivoController buscaArquivo = new BuscaArquivoController();
@@ -74,11 +74,11 @@ public class BuscaArquivoControllerTest {
 		EasyMock.replay(tipoService);
 		EasyMock.replay(request);
 		
-		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, tipo, caixa, assunto, request);
+		String retorno = buscaArquivo.buscarSubmit(pessoa,  dataArquivo, dataArquivo, tipo, caixa, assunto, request);
 		assertEquals("arquivo/buscado", retorno);
 	}
 	
-//	@Test
+	@Test
 	public void buscaSubmitQuaseTudoNullPessoa() throws IOException {
 		
 		BuscaArquivoController buscaArquivo = new BuscaArquivoController();
@@ -112,11 +112,11 @@ public class BuscaArquivoControllerTest {
 		EasyMock.replay(service);
 		EasyMock.replay(request);
 		
-		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, tipo, caixa, assunto, request);
+		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, dataArquivo, tipo, caixa, assunto, request);
 		assertEquals("arquivo/buscado", retorno);
 }
 	
-//	@Test
+	@Test
 	public void buscaSubmitQuaseTudoNulltipo() throws IOException {
 		
 		BuscaArquivoController buscaArquivo = new BuscaArquivoController();
@@ -151,7 +151,7 @@ public class BuscaArquivoControllerTest {
 		EasyMock.replay(service);
 		EasyMock.replay(request);
 		
-		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, tipo, caixa, assunto, request);
+		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, dataArquivo, tipo, caixa, assunto, request);
 		assertEquals("arquivo/buscado", retorno);
 }
 //	@Test
@@ -186,7 +186,7 @@ public class BuscaArquivoControllerTest {
 		EasyMock.replay(service);
 		EasyMock.replay(request);
 		
-		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, tipo, caixa, assunto, request);
-		assertEquals("arquivo/buscado", retorno);
+//		String retorno = buscaArquivo.buscarSubmit(pessoa, dataArquivo, dataArquivo, tipo, caixa, assunto, request);
+//		assertEquals("arquivo/buscado", retorno);
 }
 }

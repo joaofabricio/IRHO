@@ -4,9 +4,8 @@
 }
 body {
 	background-color: #FFFFF;
-   background-image: url("../images/apresentacao.jpg");
-	background-position: right bottom;
-	
+	background-image: url("../images/apresentacao.jpg");
+	background-attachment: fixed;
 }
 #conteudo {
 	margin-top: 1%;
@@ -256,5 +255,5 @@ body {
 .input_view {
 	border-style: none;
 	border-width: 0;
-	width: auto;
+	size: auto;
 }
